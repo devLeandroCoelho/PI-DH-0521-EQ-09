@@ -1,9 +1,18 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const SiteController = require('../controllers/SiteController');
+
+/* METODO GET - INDEX */
+router.get('/', SiteController.index);
+
+router.get('/produto', SiteController.produto);
+router.get('/cadastroproduto', SiteController.cadastroproduto);
+router.get('/login', SiteController.login);
+router.get('/cadastro', SiteController.cadastro);
+router.get('/perfil', SiteController.perfil);
+router.get('/carrinho', SiteController.carrinho);
+router.get('/buscar', SiteController.buscar);
+router.get('/buscar/:id', SiteController.buscar);
 
 module.exports = router;
