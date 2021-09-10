@@ -2,6 +2,9 @@ module.exports = {
 	index: (req, res) => {
 		res.render('index', { title: 'Desapeguei - Home' });
 	},
+	tdu: (req, res) => {
+		res.render('termodeuso', { title: 'Desapeguei - Termo de Uso' });
+	},
     produto: (req, res) => {
 		res.render('produto', { title: 'Desapeguei - Produto' });
 	},
