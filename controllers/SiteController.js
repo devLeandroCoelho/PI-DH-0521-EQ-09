@@ -9,7 +9,7 @@ module.exports = {
 		res.render('produto', { title: 'Desapeguei - Produto' });
 	},
     cadastroproduto: (req, res) => {
-		res.render('cadastroproduto', { title: 'Desapeguei - Cadastro Produto' });
+		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
 	},
     login: (req, res) => {
 		res.render('login', { title: 'Desapeguei - Login' });
