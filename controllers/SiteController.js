@@ -5,6 +5,9 @@ module.exports = {
 	tdu: (req, res) => {
 		res.render('termodeuso', { title: 'Desapeguei - Termo de Uso' });
 	},
+	help: (req, res) => {
+		res.render('ajuda', { title: 'Desapeguei - Termo de Uso' });
+	},
     produto: (req, res) => {
 		res.render('produto', { title: 'Desapeguei - Produto' });
 	},

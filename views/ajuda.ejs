@@ -1,483 +1,285 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!--HEAD DA PAGINA-->
+<%- include('./partials/head') %>
 
-		<title><%= title %></title>
+<body>
+	<!-- HEADER -->
+	<%- include('./partials/header') %>
 
-		<!-- Google font -->
-		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+	<div class="container" style="margin-top: 50px;">
+		<div class="row">
+			<div class="col-md-3">
 
-		<!-- Bootstrap -->
-		<link type="text/css" rel="stylesheet" href="css/index.css"/>
+				<!-- Tips Widget -->
+				<!--===================================================-->
+				<div class="mar-btm">
+					<h4 class="text-thin"><i class="fa fa-lightbulb-o fa-lg fa-fw text-warning"></i>Dicas de Uso</h4>
+					<p class="text-muted mar-top">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+						nonummy nibh euismod tincidunt.</p>
+					<div class="list-group bg-trans">
+						<a class="list-group-item" href="#"><span
+								class="badge badge-purple badge-icon badge-fw pull-left"></span> Lorem ipsum</a>
+						<a class="list-group-item" href="#"><span
+								class="badge badge-info badge-icon badge-fw pull-left"></span> Consectetuer
+							adipiscing</a>
+						<a class="list-group-item" href="#"><span
+								class="badge badge-pink badge-icon badge-fw pull-left"></span> Sed diam nonummy</a>
+						<a class="list-group-item" href="#"><span
+								class="badge badge-success badge-icon badge-fw pull-left"></span> Euismod tincidunt</a>
+					</div>
+				</div>
+				<!--===================================================-->
 
-		<!-- Slick -->
-		<link type="text/css" rel="stylesheet" href="css/slick.css"/>
-		<link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+				<hr>
 
-		<!-- nouislider -->
-		<link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
+				<!-- Contact us widget -->
+				<!--===================================================-->
+				<div class="mar-btm">
+					<h4 class="text-thin"><i class="fa fa-question-circle fa-lg fa-fw text-primary"
+							id="interrogacao"></i> Não encontrou uma pergunta? </h4>
+					<p class="text-muted mar-top">Caso ainda não tenha sanado a sua dúvida, entre em contato conosco
+						para que possamos te auxiliar com o seu caso.</p>
+					<a href="#" class="btn btn-primary" id="botaoContate">Contate nos.</a>
+				</div>
+				<!--===================================================-->
 
-		<!-- Font Awesome Icon -->
-		<link rel="stylesheet" href="css/font-awesome.min.css">
+			</div>
+			<div class="col-md-9">
+				<div class="panel">
+					<div class="panel-body">
 
-		<!-- Custom stlylesheet -->
-		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+						<!-- GENERAL -->
+						<!--===================================================-->
+						<h3 class="pad-all bord-btm text-thin">Geral</h3>
+						<div id="demo-gen-faq" class="panel-group accordion">
+							<div class="bord-no pad-top">
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-    </head>
-	<body>
-		<!-- HEADER -->
-		<header>
-			
-
-			<!-- MAIN HEADER -->
-			<div id="header">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<!-- LOGO -->
-						<div class="col-md-3">
-							<div class="header-logo">
-								<a href="#" class="logo">
-									<img src="/public/images/logo.png" class="img-fluid" alt="Imagem responsiva" id="logo">
-								</a>
-							</div>
-						</div>
-						<!-- /LOGO -->
-
-						<!-- SEARCH BAR -->
-						<div class="col-md-6">
-							<div class="header-search">
-								<form>
-									<select class="input-select">
-										<option value="0">Categorias</option>
-										<option value="1">Category 01</option>
-										<option value="1">Category 02</option>
-									</select>
-									<input class="input" placeholder="Busque aqui">
-									<button class="search-btn">Search</button>
-								</form>
-							</div>
-						</div>
-						<!-- /SEARCH BAR -->
-
-						<!-- ACCOUNT -->
-						<div class="col-md-3 clearfix">
-							<div class="header-ctn">
-								<!-- Wishlist -->
-								<div>
-									<a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-gen-faq1" data-toggle="collapse" data-parent="#demo-gen-faq">Lorem
+										ipsum dolor sit amet ?</a>
 								</div>
-								<!-- /Wishlist -->
 
-								<!-- Cart -->
-								<div class="dropdown">
-									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-										<i class="fa fa-shopping-cart"></i>
-										<span>Carrinho</span>
-										<div class="qty">4</div>
-									</a>
-									<div class="cart-dropdown">
-										<div class="cart-list">
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/product01.png" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-
-											<div class="product-widget">
-												<div class="product-img">
-													<img src="./img/product02.png" alt="">
-												</div>
-												<div class="product-body">
-													<h3 class="product-name"><a href="#">product name goes here</a></h3>
-													<h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-												</div>
-												<button class="delete"><i class="fa fa-close"></i></button>
-											</div>
-										</div>
-										<div class="cart-summary">
-											<small>3 Item(s) selected</small>
-											<h5>SUBTOTAL: $2940.00</h5>
-										</div>
-										<div class="cart-btns">
-											<a href="#">View Cart</a>
-											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
-										</div>
+								<!-- Answer -->
+								<div id="demo-gen-faq1" class="collapse in">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
 									</div>
 								</div>
-								<!-- /Cart -->
+							</div>
+							<div class="bord-no pad-top">
 
-								<!-- Menu Toogle -->
-								<div class="menu-toggle">
-									<a href="#">
-										<i class="fa fa-bars"></i>
-										<span>Menu</span>
-									</a>
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-gen-faq2" data-toggle="collapse"
+										data-parent="#demo-gen-faq">Consectetuer adipiscing elit ?</a>
 								</div>
-								<!-- /Menu Toogle -->
+
+								<!-- Answer -->
+								<div id="demo-gen-faq2" class="collapse in">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+							<div class="bord-no pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-gen-faq3" data-toggle="collapse" data-parent="#demo-gen-faq">Sed diam
+										nonummy nibh euismod tincidunt ?</a>
+								</div>
+
+								<!-- Answer -->
+								<div id="demo-gen-faq3" class="collapse">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+							<div class="bord-no pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-gen-faq4" data-toggle="collapse"
+										data-parent="#demo-gen-faq">Tincidunt ut laoreet dolore magna ?</a>
+								</div>
+
+
+								<!-- Answer -->
+								<div id="demo-gen-faq4" class="collapse">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
 							</div>
 						</div>
-						<!-- /ACCOUNT -->
+						<!--===================================================-->
+
+						<hr class="bord-no pad-all">
+
+						<!-- ACCOUNT -->
+						<!--===================================================-->
+						<h3 class="pad-all bord-btm text-thin">Conta</h3>
+						<div id="demo-acc-faq" class="panel-group accordion">
+							<div class="panel panel-trans pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-acc-faq1" data-toggle="collapse" data-parent="#demo-acc-faq">Lorem
+										ipsum dolor sit amet ?</a>
+								</div>
+
+
+								<!-- Answer -->
+								<div id="demo-acc-faq1" class="collapse in">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-trans pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-acc-faq2" data-toggle="collapse"
+										data-parent="#demo-acc-faq">Consectetuer adipiscing elit ?</a>
+								</div>
+
+								<!-- Answer -->
+								<div id="demo-acc-faq2" class="collapse">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+							<div class="panel panel-trans pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-acc-faq3" data-toggle="collapse" data-parent="#demo-acc-faq">Sed diam
+										nonummy nibh euismod tincidunt ?</a>
+								</div>
+
+								<!-- Answer -->
+								<div id="demo-acc-faq3" class="collapse">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--===================================================-->
+
+						<hr class="bord-no pad-all">
+
+						<!-- PAYMENT -->
+						<!--===================================================-->
+						<h3 class="pad-all bord-btm text-thin">Pagamento</h3>
+						<div id="demo-pym-faq" class="panel-group accordion">
+							<div class="bord-no pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-pym-faq1" data-toggle="collapse" data-parent="#demo-pym-faq"> Qual o
+										prazo de compensação do boleto?</a>
+								</div>
+
+
+								<!-- Answer -->
+								<div id="demo-pym-faq1" class="collapse in">
+									<div class="pad-all">
+										Após o pagamento do boleto, ele pode levar até 2 dias úteis para ser compensado.
+									</div>
+								</div>
+							</div>
+							<div class="bord-no pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-pym-faq2" data-toggle="collapse"
+										data-parent="#demo-pym-faq">Consectetuer adipiscing elit ?</a>
+								</div>
+
+								<!-- Answer -->
+								<div id="demo-pym-faq2" class="collapse in">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+							<div class="bord-no pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-pym-faq3" data-toggle="collapse" data-parent="#demo-pym-faq">Sed diam
+										nonummy nibh euismod tincidunt ?</a>
+								</div>
+
+
+								<!-- Answer -->
+								<div id="demo-pym-faq3" class="collapse in">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+							<div class="bord-no pad-top">
+
+								<!-- Question -->
+								<div class="text-semibold pad-hor text-lg">
+									<a href="#demo-pym-faq4" data-toggle="collapse"
+										data-parent="#demo-pym-faq">Tincidunt ut laoreet dolore magna ?</a>
+								</div>
+
+
+								<!-- Answer -->
+								<div id="demo-pym-faq4" class="collapse in">
+									<div class="pad-all">
+										Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+										euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+										minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+										aliquip ex ea commodo consequat.
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--===================================================-->
+
 					</div>
-					<!-- row -->
 				</div>
-				<!-- container -->
 			</div>
-			<!-- /MAIN HEADER -->
-		</header>
-		<!-- /HEADER -->
+		</div>
+	</div>
+	<%- include('./partials/footer') %>
+</body>
 
-
-
-
-        <div class="container" style="margin-top: 50px;">
-            <div class="row">
-                <div class="col-md-3">
-            
-                    <!-- Tips Widget -->
-                    <!--===================================================-->
-                    <div class="mar-btm">
-                        <h4 class="text-thin"><i class="fa fa-lightbulb-o fa-lg fa-fw text-warning"></i>Dicas de Uso</h4>
-                        <p class="text-muted mar-top">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.</p>
-                        <div class="list-group bg-trans">
-                            <a class="list-group-item" href="#"><span class="badge badge-purple badge-icon badge-fw pull-left"></span> Lorem ipsum</a>
-                            <a class="list-group-item" href="#"><span class="badge badge-info badge-icon badge-fw pull-left"></span> Consectetuer adipiscing</a>
-                            <a class="list-group-item" href="#"><span class="badge badge-pink badge-icon badge-fw pull-left"></span> Sed diam nonummy</a>
-                            <a class="list-group-item" href="#"><span class="badge badge-success badge-icon badge-fw pull-left"></span> Euismod tincidunt</a>
-                        </div>
-                    </div>
-                    <!--===================================================-->
-            
-                    <hr>
-            
-                    <!-- Contact us widget -->
-                    <!--===================================================-->
-                    <div class="mar-btm">
-                        <h4 class="text-thin"><i class="fa fa-question-circle fa-lg fa-fw text-primary" id="interrogacao"></i> Não encontrou uma pergunta? </h4>
-                        <p class="text-muted mar-top">Caso ainda não tenha sanado a sua dúvida, entre em contato conosco para que possamos te auxiliar com o seu caso.</p>
-                        <a href="#"  class="btn btn-primary" id="botaoContate">Contate nos.</a>
-                    </div>
-                    <!--===================================================-->
-            
-                </div>
-                <div class="col-md-9">
-                    <div class="panel">
-                        <div class="panel-body">
-            
-                            <!-- GENERAL -->
-                            <!--===================================================-->
-                            <h3 class="pad-all bord-btm text-thin">Geral</h3>
-                            <div id="demo-gen-faq" class="panel-group accordion">
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-gen-faq1" data-toggle="collapse" data-parent="#demo-gen-faq">Lorem ipsum dolor sit amet ?</a>
-                                    </div>
-            
-                                    <!-- Answer -->
-                                    <div id="demo-gen-faq1" class="collapse in">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-gen-faq2" data-toggle="collapse" data-parent="#demo-gen-faq">Consectetuer adipiscing elit ?</a>
-                                    </div>
-            
-                                    <!-- Answer -->
-                                    <div id="demo-gen-faq2" class="collapse in">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-gen-faq3" data-toggle="collapse" data-parent="#demo-gen-faq">Sed diam nonummy nibh euismod tincidunt ?</a>
-                                    </div>
-            
-                                    <!-- Answer -->
-                                    <div id="demo-gen-faq3" class="collapse">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-gen-faq4" data-toggle="collapse" data-parent="#demo-gen-faq">Tincidunt ut laoreet dolore magna ?</a>
-                                    </div>
-            
-            
-                                    <!-- Answer -->
-                                    <div id="demo-gen-faq4" class="collapse">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--===================================================-->
-            
-                            <hr class="bord-no pad-all">
-            
-                            <!-- ACCOUNT -->
-                            <!--===================================================-->
-                            <h3 class="pad-all bord-btm text-thin">Conta</h3>
-                            <div id="demo-acc-faq" class="panel-group accordion">
-                                <div class="panel panel-trans pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-acc-faq1" data-toggle="collapse" data-parent="#demo-acc-faq">Lorem ipsum dolor sit amet ?</a>
-                                    </div>
-            
-            
-                                    <!-- Answer -->
-                                    <div id="demo-acc-faq1" class="collapse in">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-trans pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-acc-faq2" data-toggle="collapse" data-parent="#demo-acc-faq">Consectetuer adipiscing elit ?</a>
-                                    </div>
-            
-                                    <!-- Answer -->
-                                    <div id="demo-acc-faq2" class="collapse">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel panel-trans pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-acc-faq3" data-toggle="collapse" data-parent="#demo-acc-faq">Sed diam nonummy nibh euismod tincidunt ?</a>
-                                    </div>
-            
-                                    <!-- Answer -->
-                                    <div id="demo-acc-faq3" class="collapse">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--===================================================-->
-            
-                            <hr class="bord-no pad-all">
-            
-                            <!-- PAYMENT -->
-                            <!--===================================================-->
-                            <h3 class="pad-all bord-btm text-thin">Pagamento</h3>
-                            <div id="demo-pym-faq" class="panel-group accordion">
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-pym-faq1" data-toggle="collapse" data-parent="#demo-pym-faq"> Qual o prazo de compensação do boleto?</a>
-                                    </div>
-            
-            
-                                    <!-- Answer -->
-                                    <div id="demo-pym-faq1" class="collapse in">
-                                        <div class="pad-all">
-                                            Após o pagamento do boleto, ele pode levar até 2 dias úteis para ser compensado.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-pym-faq2" data-toggle="collapse" data-parent="#demo-pym-faq">Consectetuer adipiscing elit ?</a>
-                                    </div>
-            
-                                    <!-- Answer -->
-                                    <div id="demo-pym-faq2" class="collapse in">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-pym-faq3" data-toggle="collapse" data-parent="#demo-pym-faq">Sed diam nonummy nibh euismod tincidunt ?</a>
-                                    </div>
-            
-            
-                                    <!-- Answer -->
-                                    <div id="demo-pym-faq3" class="collapse in">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="bord-no pad-top">
-            
-                                    <!-- Question -->
-                                    <div class="text-semibold pad-hor text-lg">
-                                        <a href="#demo-pym-faq4" data-toggle="collapse" data-parent="#demo-pym-faq">Tincidunt ut laoreet dolore magna ?</a>
-                                    </div>
-            
-            
-                                    <!-- Answer -->
-                                    <div id="demo-pym-faq4" class="collapse in">
-                                        <div class="pad-all">
-                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--===================================================-->
-            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-
-
-
-
-
-
-
-		<!-- FOOTER -->
-		<footer id="footer">
-			<!-- top footer -->
-			<div class="section">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Sobre nós</h3>
-								<p id="footer-sobre"> Desapeguei é uma empresa global de comércio eletrônico, sediada em São Paulo Brasil. Presente em 5 países, publicando anúncios classificados na Internet. Foi fundada em março de 2021 pelos empresários Leandro Coelho, Lenix Eduardo e Myllena Karen.</p>
-								<ul class="footer-links" id="footer-sobre">
-									<li><a href="#"><i class="fa fa-map-marker"></i>Rua Arroz Doce, 1234</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>(11)99911-1184</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>contato@desapega.com.br</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Categorias</h3>
-								<ul class="footer-links">
-									<li><a href="#">Cadeiras</a></li>
-									<li><a href="#">Mesas</a></li>
-									<li><a href="#">Armários</a></li>
-									<li><a href="#">Camas</a></li>
-									<li><a href="#">Acessórios</a></li>
-									<li><a href="#">Eletrônicos</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="clearfix visible-xs"></div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Informações</h3>
-								<ul class="footer-links">
-									<li><a href="#">Sobre Nós</a></li>
-									<li><a href="#">Contatos</a></li>
-									<li><a href="#">Política de Privacidade</a></li>
-									<li><a href="#">Política de Devolução</a></li>
-									<li><a href="#">Termos de Uso</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Serviço</h3>
-								<ul class="footer-links">
-									<li><a href="#">Conta</a></li>
-									<li><a href="#">Carrinho</a></li>
-									<li><a href="#">Rastrear meu pedido</a></li>
-									<li><a href="#">Ajuda</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /top footer -->
-
-			<!-- bottom footer -->
-			<div id="bottom-footer" class="section">
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-							<span class="copyright">
-								 <a target="_blank" href="#">Copyright</a>
-							</span>
-						</div>
-					</div>
-						<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /bottom footer -->
-		</footer>
-		<!-- /FOOTER -->
-
-		<!-- jQuery Plugins -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/slick.min.js"></script>
-		<script src="js/nouislider.min.js"></script>
-		<script src="js/jquery.zoom.min.js"></script>
-		<script src="js/main.js"></script>
-
-	</body>
 </html>
