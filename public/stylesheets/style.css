@@ -86,7 +86,17 @@ ul, ol {
   border-radius: 2px;
 }
 
+#file-input{
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #646666;
 
+}
+
+#file {
+  display: none;
+}
 
 textarea.input {
   padding: 15px;
@@ -257,6 +267,7 @@ textarea.input {
 \*----------------------------*/
 
 .section {
+  margin-top: 20px;
   padding-top: 2px;
   padding-bottom: 2px;
 }
