@@ -1,5 +1,3 @@
-
-
 body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -31,254 +29,6 @@ ul, ol {
   list-style: none
 }
 
-
-* {
-  padding: 0px;
-  margin: 0px;
-  box-sizing: border-box;
-  border: 0;
-  font-size: 20px;
-  color: #B9BABC;
-  text-decoration: none !important;
-
-}
-
-body,
-html {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-h2 {
-  font-size: 30px;
-  padding-bottom: 20px;
-}
-
-/* header principal */
-header {
-  display: flex;
-  position: relative;
-  padding: 15px;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-  background: #15161D;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-
-
-#logo {
-  position: absolute;
-  height: 130px;
-  top: -35px;
-  left: -20px;
-}
-
-#anunciar {
-  display: flex;
-  align-items: center;
-  margin-left: 10%;
-}
-
-#entrar {
-  display: flex;
-  align-items: center;
-  margin-left: 10%;
-}
-
-#anunciar img,
-#entrar img {
-  height: 35px;
-  margin-right: 5px;
-
-}
-
-/* barra pesquisa */
-#busca {
-  background: #b9d8e6ab;
-  border-radius: 20px;
-  height: 35px;
-  padding: 10px;
-  width: 50%;
-  margin-left: 7%;
-}
-
-#busca:focus {
-  outline: 0px;
-}
-
-#lupa {
-  position: relative;
-  top: -3px;
-  left: -30px;
-  cursor: pointer;
-}
-
-#lupa:after {
-  font-family: FontAwesome;
-  font-size: 14px;
-  content: "\f002"
-}
-
-/* header secundario */
-#categorias {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-  padding: 10px;
-  width: 100%;
-  left: 0px;
-  top: 0px;
-  background: #323B7E;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-}
-
-#categorias a {
-  display: flex;
-  flex-direction: column;
-}
-
-#categorias img {
-  height: 30px;
-  width: 36px;
-  align-self: center;
-}
-
-#categorias p {
-  color: white;
-  margin: 0;
-}
-
-/*Últimos produtos */
-#produtocarrossel {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/*Carrossel */
-.carousel-item img {
-  width: 45vw;
-  height: 50vh;
-}
-
-.slide {
-  width: 45vw;
-  margin: auto;
-}
-
-.carousel-slide {
-  width: 400px;
-  height: 400px;
-}
-
-/*produtos mais vendidos */
-
-#produtosmvendidos {
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#produtosgrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 20px;
-}
-
-#produtogrid {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #323B7E;
-  padding: 5%;
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-
-#produtogrid span {
-  color: #FFFFFF;
-}
-
-#classprodutogrid {
-  width: 50%;
-}
-
-#imgprodutogrid {
-  height: 90%;
-  width: 90%;
-}
-
-
-footer {
-  text-align: center;
-  color: #FFFFFF;
-  font-size: 12px;
-  background: #FFFFFF;
-  padding: 20px;
-}
-
-
-@media (max-width: 800px) {
-
-  #busca,
-  #lupa {
-    display: none;
-  }
-
-  header {
-    justify-content: space-around;
-  }
-
-  #anunciar {
-    margin-left: 30%;
-  }
-
-  #entrar {
-    margin-left: 10%;
-    margin-right: 5%;
-  }
-
-  .carousel-item img {
-    width: 90vw;
-    height: 50vh;
-  }
-
-  .slide {
-    width: 90vw;
-    margin: auto;
-  }
-
-  .carousel-slide {
-    width: 500px;
-    height: 400px;
-  }
-
-  #produtosgrid {
-    display: block;
-  }
-
-  footer {
-    font-size: 15px;
-  }
-}
-#logo {
-  position: absolute;
-  height: 130px;
-  top: -35px;
-  left: -20px;
-}
 /*----------------------------*\
 	Buttons
 \*----------------------------*/
@@ -302,6 +52,25 @@ footer {
   color: #FFF;
 }
 
+.second-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  margin-bottom: 20px;
+  background-color: #1d0f11;
+  border: none;
+  border-radius: 40px;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.second-btn:hover, .second-btn:focus {
+  opacity: 0.9;
+  color: #FFF;
+}
 /*----------------------------*\
 	Inputs
 \*----------------------------*/
@@ -314,7 +83,10 @@ footer {
   border: 1px solid #E4E7ED;
   background-color: #FFF;
   width: 100%;
+  border-radius: 2px;
 }
+
+
 
 textarea.input {
   padding: 15px;
@@ -485,8 +257,8 @@ textarea.input {
 \*----------------------------*/
 
 .section {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
 
 .section-title {
@@ -640,15 +412,16 @@ textarea.input {
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #15161D;
-  width: 100%;
 }
 
 .header-logo {
-  float: left;
+  position: absolute;
 }
 
 .header-logo .logo img {
-  display: block;
+  position: absolute;
+  bottom: -100px;
+  
 }
 
 /*----------------------------*\
@@ -669,13 +442,10 @@ textarea.input {
 }
 
 .header-search form .input {
-  width: 50%;
+  width: calc(100% - 260px);
   margin-right: -4px;
 }
 
-/* #minhaConta{
-  width: 120px !important;
-} */
 .header-search form .search-btn {
   height: 40px;
   width: 100px;
@@ -693,7 +463,6 @@ textarea.input {
 .header-ctn {
   float: right;
   padding: 15px 0px;
- 
 }
 
 .header-ctn>div {
@@ -717,11 +486,9 @@ textarea.input {
   font-size: 18px;
 }
 
-/* .header-ctn>div>a>span {
-  /* font-size: 12px;
-} */ 
-
-
+.header-ctn>div>a>span {
+  font-size: 12px;
+}
 
 .header-ctn>div>a>.qty {
   position: absolute;
@@ -1073,7 +840,6 @@ textarea.input {
 .product .product-img>img {
   width: 100%;
 }
-
 
 .product .product-img .product-label {
   position: absolute;
@@ -1702,18 +1468,19 @@ textarea.input {
   color: #8D99AE;
 }
 
-/* .product-details .product-available {
+.product-details .product-available {
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 700;
   margin-left: 30px;
   color: #D10024;
-} */
+}
 
-/* .product-details .product-options {
+.product-details .product-options {
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
 .product-details .product-options label {
   font-weight: 500;
   font-size: 12px;
@@ -1721,9 +1488,10 @@ textarea.input {
   margin-right: 15px;
   margin-bottom: 0px;
 }
+
 .product-details .product-options .input-select {
   width: 90px;
-} */
+}
 
 .product-details .add-to-cart {
   margin-bottom: 30px;
@@ -2037,78 +1805,16 @@ textarea.input {
 }
 
 /*=========================================================
-	09 -> CHECKOUT PAGE
+	09 -> AJUDA
 ===========================================================*/
 
-.billing-details {
-  margin-bottom: 30px;
+#botaoContate{
+  background-color:#D10024;
+  border-color:#D10024;
 }
 
-.shiping-details {
-  margin-bottom: 30px;
-}
-
-.order-details {
-  position: relative;
-  padding: 0px 30px 30px;
-  border-right: 1px solid #E4E7ED;
-  border-left: 1px solid #E4E7ED;
-  border-bottom: 1px solid #E4E7ED;
-}
-
-.order-details:before {
-  content: "";
-  position: absolute;
-  left: -1px;
-  right: -1px;
-  top: -15px;
-  height: 30px;
-  border-top: 1px solid #E4E7ED;
-  border-left: 1px solid #E4E7ED;
-  border-right: 1px solid #E4E7ED;
-}
-
-.order-summary {
-  margin: 15px 0px;
-}
-
-.order-summary .order-col {
-  display: table;
-  width: 100%;
-}
-
-.order-summary .order-col:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.order-summary .order-col>div {
-  display: table-cell;
-  padding: 10px 0px;
-}
-
-.order-summary .order-col>div:first-child {
-  width: calc(100% - 150px);
-}
-
-.order-summary .order-col>div:last-child {
-  width: 150px;
-  text-align: right;
-}
-
-.order-summary .order-col .order-total {
-  font-size: 24px;
+#interrogacao{
   color: #D10024;
-}
-
-.order-details .payment-method {
-  margin: 30px 0px;
-}
-
-.order-details .order-submit {
-  display: block;
-  margin-top: 30px;
 }
 
 /*=========================================================
@@ -2123,6 +1829,7 @@ textarea.input {
 
 .newsletter {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .newsletter p {
@@ -2213,11 +1920,7 @@ textarea.input {
   margin: 30px 0px;
 }
 
-#footer-sobre{
-  text-align: left;
-}
 .footer .footer-title {
- 
   color: #FFF;
   text-transform: uppercase;
   font-size: 18px;
@@ -2341,6 +2044,13 @@ textarea.input {
 @media only screen and (max-width: 1201px) {}
 
 @media only screen and (max-width: 991px) {
+  .header-search{
+    display: none;
+  }
+  .header-logo .logo img {
+    bottom: -80px;
+  }
+
   #top-header .header-links.pull-left {
     float: none !important;
   }
@@ -2355,10 +2065,6 @@ textarea.input {
   .header-logo .logo {
     display: inline-block;
   }
-  .header-search{
-    display: none;
-  }
- 
   #product-imgs {
     margin-bottom: 60px;
     margin-top: 15px;
@@ -2369,9 +2075,6 @@ textarea.input {
   #reviews {
     margin-top: 30px;
     margin-bottom: 30px;
-  }
-  #logo{
-    top: 15px;
   }
 }
 
