@@ -5,8 +5,20 @@ module.exports = {
 	tdu: (req, res) => {
 		res.render('termodeuso', { title: 'Desapeguei - Termo de Uso' });
 	},
+	tdp: (req, res) => {
+		res.render('politicaprivacidade', { title: 'Desapeguei - Política de Privacidade' });
+	},
+	modelo: (req, res) => {
+		res.render('modelo', { title: 'Desapeguei - Modelo' });
+	},
+	sobre: (req, res) => {
+		res.render('sobre', { title: 'Desapeguei - Sobre Nós' });
+	},
+	contato: (req, res) => {
+		res.render('contato', { title: 'Desapeguei - Contato' });
+	},
 	help: (req, res) => {
-		res.render('ajuda', { title: 'Desapeguei - Termo de Uso' });
+		res.render('ajuda', { title: 'Desapeguei - Ajuda' });
 	},
     produto: (req, res) => {
 		res.render('produto', { title: 'Desapeguei - Produto' });

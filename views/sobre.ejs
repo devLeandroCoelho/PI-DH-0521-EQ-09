@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!--HEAD DA PAGINA-->
+<%- include('./partials/head') %>
+
+<body>
+	<!-- HEADER -->
+	<%- include('./partials/header') %>
+	<!-- NAVIGATION -->
+	<%- include('./partials/nav') %>
+
+	<div id="breadcrumb" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="breadcrumb-tree">
+						<li><a href="/">Home</a></li>
+						<li><a href="sobre">Sobre</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+
+	<div class="container" style="margin-top: 50px; margin-bottom: 50px">
+		<h2>Sobre Nós</h2>
+		<p>Somos o nono grupo de Projeto Integrador da turma 0521 da Digital House. Desapeguei é uma empresa fictícia "fundada" por nós para contemplar este projeto.</p>
+		<h2>Integrantes</h2>
+		<ol>
+			<li>Entre entradas e saidas de grupo, os fortes que finalizaram este projeto são: Leandro Coelho, Leandro
+				Coelho, Lenix Eduardo e Myllena Karen. </li>
+			<li>Abaixo listamos o link do Linkedin e do Github dos integrantes para quem quiser melhor conhece-los:</li>
+		</ol>
+		<ul style="list-style-type: square; margin-left: 5%;">
+			<li><a href="https://www.linkedin.com/in/devleandrocoelho">Linkedin - Leandro Coelho</a></li>
+			<li><a href="https://github.com/devLeandroCoelho">Github - Leandro Coelho</a></li>
+			<li><a href="https://www.linkedin.com/in/devleandrocoelho">Linkedin - Lenix Eduardo</a></li>
+			<li><a href="https://github.com/lenixeduardo">Github - Lenix Eduardo</a><br></li>
+			<li><a href="https://www.linkedin.com/in/devleandrocoelho">Linkedin - Myllena Karen</a></li>
+			<li><a href="https://github.com/karensantana278">Github - Myllena Karen</a></li>
+		</ul>
+		</br>
+		<ul>
+			<li><a href="/" class="btn btn-danger"  type="submit">&lt;&lt; Voltar para Página Principal</a></li>
+		</ul>
+	</div>
+	<!-- /BREADCRUMB -->
+	<%- include('./partials/footer') %>
+</body>
+
+</html>
