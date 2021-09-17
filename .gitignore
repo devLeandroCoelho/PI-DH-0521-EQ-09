@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Arquivo configuração de banco
+database/config/config.json
