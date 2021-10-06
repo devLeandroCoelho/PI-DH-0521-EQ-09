@@ -56,7 +56,7 @@ module.exports = (sequelize, DataTypes) => {
     anuncios.hasMany(
       models.ImagemAnuncio, {
         as: 'Anuncios-Imagem_Anuncios',
-        foreignKey: 'anuncios_id'
+        foreignKey: 'anuncio_id'
       }
     )
   }

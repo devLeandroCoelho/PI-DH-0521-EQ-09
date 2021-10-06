@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) =>{
         {
             imagem: {type: DataTypes.STRING(100), allowNull: false},
             capa: {type: DataTypes.CHAR, allowNull: false},
-            anuncios_id: {type: DataTypes.INTEGER, allowNull: false}
+            anuncio_id: {type: DataTypes.INTEGER, allowNull: false}
         },
         {
             tableName: "imagem_anuncios",
@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) =>{
 
     imagemAnuncios.associate = (models) => {
         imagemAnuncios.belongsTo(
-          models.Anuncios,
+          models.Anuncio,
           {
             as: 'imagem-anuncio_anuncio',
-            foreignKey: 'anuncios_id',
+            foreignKey: 'anuncio_id',
           }
         )
     }

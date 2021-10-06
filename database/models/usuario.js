@@ -2,12 +2,28 @@ module.exports = (sequelize, DataTypes) => {
 
   const usuario = sequelize.define(
     'Usuario', {
-      nome: DataTypes.STRING(45),
-      telefone: DataTypes.STRING(12),
-      endereco: DataTypes.STRING(45),
-      senha: DataTypes.STRING(256),
-    }, 
-    {
+      nome: {
+        type: DataTypes.STRING(45),
+        allowNull: false
+      },
+      telefone: {
+        type: DataTypes.STRING(12),
+        allowNull: false
+      },
+      endereco: {
+        type: DataTypes.STRING(45),
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.STRING(45),
+        allowNull: false,
+        unique: true
+      },
+      senha: {
+        type: DataTypes.STRING(256),
+        allowNull: false
+      },
+    }, {
       tableName: "usuarios",
       timestamps: false
     }
@@ -25,4 +41,3 @@ module.exports = (sequelize, DataTypes) => {
   return usuario;
 
 }
-
