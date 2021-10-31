@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<!--HEAD DA PAGINA-->
+	<%- include('./partials/head') %>
+
+<body>
+	<!-- HEADER -->
+	<%- include('./partials/header') %>
+	<!-- NAVIGATION -->
+	<%- include('./partials/nav') %>
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="breadcrumb-header">meu cadastro</h3>
+				
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+
+			<div class="col-md-7" >
+				<!-- Billing Details -->
+				<div class="billing-details" >
+					<div class="section-title">
+						<h3 class="title">Configure seu cadastro</h3>
+					</div>
+					<label for="nome">Informe seu Nome</label>
+					<div class="form-group">
+						<input class="input" type="text" name="nome" >
+					</div>
+					<label for="apelido">Informe seu Apelido</label>
+					<div class="form-group">
+						<input class="input" type="text" name="apelido" >
+					</div>
+					<label for="cpf">Informe seu CPF</label>
+					<div class="form-group">
+						<input class="input" type="text" name="cpf" >
+					</div>
+					<label for="sexo">Informe seu gênero</label>
+					<div class="form-group">
+					<input type="radio" name="sexo" value="masculino">Masculino <br>
+					<input type="radio" name="sexo" value="feminino">Feminino <br>
+					<input type="radio" name="sexo" value="naoinformar">Prefiro não informar<br>
+					</div>
+					<label for="datanascimento">Informe sua data de nascimento</label>
+					<div class="form-group">
+						<input class="input" type="date" name="datanascimento" >
+					</div>
+					<h3>Adicionar endereço</h3>>
+				
+					<label for="cep">CEP</label>
+					<div class="form-group">
+						<input class="input" type="text" name="cep">
+					</div>
+					
+					
+					
+					<a href="#" class="primary-btn order-submit">Salvar alterações</a>
+				</div>
+					
+				</div>
+				<!-- /Billing Details -->
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+		<!-- /SECTION -->
+		<%- include('./partials/redesSociais') %>
+		<%- include('./partials/footer') %>
+	</body>
+</html>

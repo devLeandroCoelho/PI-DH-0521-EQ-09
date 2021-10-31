@@ -8,9 +8,6 @@ module.exports = {
 	tdp: (req, res) => {
 		res.render('politicaprivacidade', { title: 'Desapeguei - Política de Privacidade' });
 	},
-	modelo: (req, res) => {
-		res.render('modelo', { title: 'Desapeguei - Modelo' });
-	},
 	sobre: (req, res) => {
 		res.render('sobre', { title: 'Desapeguei - Sobre Nós' });
 	},
@@ -35,8 +32,8 @@ module.exports = {
     perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
 	},
-		carrinho: (req, res) => {
-		res.render('carrinho', { title: 'Desapeguei - Carrinho' });
+	itens: (req, res) => {
+		res.render('itens', { title: 'Desapeguei - Itens' });
 	},
 	buscar: (req, res) => {
 		res.render('buscar', { title: 'Desapeguei - Buscar' , id: req.params.id});

@@ -8,7 +8,6 @@ router.get('/', SiteController.index);
 router.get('/termodeuso', SiteController.tdu);
 router.get('/politicaprivacidade', SiteController.tdp);
 router.get('/sobre', SiteController.sobre);
-router.get('/modelo', SiteController.modelo);
 router.get('/contato', SiteController.contato);
 router.get('/ajuda', SiteController.help);
 router.get('/produto', SiteController.produto);
@@ -16,8 +15,10 @@ router.get('/cadastroproduto', SiteController.cadastroproduto);
 router.get('/login', SiteController.login);
 router.get('/cadastro', SiteController.cadastro);
 router.get('/perfil', SiteController.perfil);
-router.get('/carrinho', SiteController.carrinho);
+router.get('/perfil', SiteController.perfil);
+router.get('/itens', SiteController.itens);
 router.get('/buscar', SiteController.buscar);
 router.get('/buscar/:id', SiteController.buscar);
+
 
 module.exports = router;
