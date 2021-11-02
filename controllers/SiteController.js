@@ -37,5 +37,8 @@ module.exports = {
 	},
 	buscar: (req, res) => {
 		res.render('buscar', { title: 'Desapeguei - Buscar' , id: req.params.id});
+	},
+	favoritos: (req, res) => {
+		res.render('favoritos', { title: 'Desapeguei - Favoritos' });
 	}
 }
