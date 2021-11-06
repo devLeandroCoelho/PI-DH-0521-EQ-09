@@ -2058,10 +2058,12 @@ textarea.input {
 @media only screen and (max-width: 991px) {
   .header-search{
     display: none;
-  }
+  };
+   
   .header-logo .logo img {
     bottom: -80px;
-  }
+    
+  };
 
   #top-header .header-links.pull-left {
     float: none !important;
@@ -2073,6 +2075,7 @@ textarea.input {
   .header-logo {
     float: none;
     text-align: center;
+    display: none !important;
   }
   .header-logo .logo {
     display: inline-block;

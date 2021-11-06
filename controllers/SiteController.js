@@ -1,6 +1,8 @@
+Post = require("../database/models/Post")
+
 module.exports = {
 
-	
+
 
 
 	index: (req, res) => {
@@ -21,30 +23,44 @@ module.exports = {
 	help: (req, res) => {
 		res.render('ajuda', { title: 'Desapeguei - Ajuda' });
 	},
-    produto: (req, res) => {
+	produto: (req, res) => {
 		res.render('produto', { title: 'Desapeguei - Produto' });
 	},
-    cadastroproduto: (req, res) => {
+	cadastroproduto: (req, res) => {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
 	},
-    login: (req, res) => {
+	login: (req, res) => {
 		res.render('login', { title: 'Desapeguei - Login' });
 	},
-    cadastro: (req, res) => {
+	cadastro: (req, res) => {
 		res.render('cadastro', { title: 'Desapeguei - Cadastro' });
 	},
-    perfil: (req, res) => {
+	perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
 	},
 	itens: (req, res) => {
 		res.render('itens', { title: 'Desapeguei - Itens' });
 	},
 	buscar: (req, res) => {
-		res.render('buscar', { title: 'Desapeguei - Buscar' , id: req.params.id});
+		res.render('buscar', { title: 'Desapeguei - Buscar', id: req.params.id });
 	},
 	favoritos: (req, res) => {
 		res.render('favoritos', { title: 'Desapeguei - Favoritos' });
-	}
+	},
+	addBd: (req, res) => {
+		Post.create({
+			nome: req.body.nome,
+			email: req.body.email,
+			cpf: req.body.cpf,
+			telefone: req.body.telefone,
+			genero: req.body.genero,
+			endereco: req.body.endereco,
+			senha: req.body.senha
+		}).then(function () {
+			res.send("Anuncio inserido com sucesso!")
+		}).catch(function (erro) {
+			res.send("Houve um erro na insercao do anuncio.")
 
-
-}
+		})
+	},
+}	
