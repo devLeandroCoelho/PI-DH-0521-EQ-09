@@ -19,6 +19,7 @@ router.get('/favoritos', SiteController.favoritos);
 router.get('/itens', SiteController.itens);
 router.get('/buscar', SiteController.buscar);
 router.get('/buscar/:id', SiteController.buscar);
+router.post('/addBb', SiteController.addBd);
 
 
 module.exports = router;
