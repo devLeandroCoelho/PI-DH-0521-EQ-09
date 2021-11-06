@@ -1,4 +1,13 @@
-Post = require("../database/models/Post")
+
+const { Usuario, Anuncio, sequelize } = require('../database/models');
+const bcrypt = require('bcrypt');
+//exemplo
+// Usuario.findAll().then(
+//     data=>{
+//         console.log(data.map(d => d.toJSON()));
+//         sequelize.close();
+//     }
+// )
 
 module.exports = {
 
@@ -48,19 +57,46 @@ module.exports = {
 		res.render('favoritos', { title: 'Desapeguei - Favoritos' });
 	},
 	addBd: (req, res) => {
-		Post.create({
+
+		console.log(req.body)
+		Usuario.create({
 			nome: req.body.nome,
 			email: req.body.email,
 			cpf: req.body.cpf,
 			telefone: req.body.telefone,
+			complemento: req.body.complemento,
 			genero: req.body.genero,
 			endereco: req.body.endereco,
-			senha: req.body.senha
+			senha: bcrypt.hashSync(req.body.senha, 10)
 		}).then(function () {
-			res.send("Anuncio inserido com sucesso!")
+			res.send("Cadastro inserido com sucesso!")
 		}).catch(function (erro) {
-			res.send("Houve um erro na insercao do anuncio.")
+			console.log(erro)
+			res.send("Houve um erro na insercao do cadastro.")
 
 		})
 	},
-}	
+	addproduto: (req, res) => {
+		Anuncio.create({
+			usuarios_id: 1,
+			// Finalizar o login do sistema, para então alterar depois
+			// a  configuração do usuario id no inserir anuncio.
+			titulo: req.body.title,
+			descricao: req.body.description,
+			categoria_id: req.body.categoria_id,
+			status_id: 2,
+			valor: req.body.valor, 
+			localizacao: req.body.localizacao,
+			imagem: req.body.file
+// telefone:req.body.telefone,
+
+		}).then(function () {
+			res.send("Anuncio inserido com sucesso!")
+		}).catch(function (erro) {
+			console.log(erro)
+			res.send("Houve um erro na insercao do anuncio.")
+
+		})
+
+	}
+}

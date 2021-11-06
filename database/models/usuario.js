@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(45),
         allowNull: false
       },
+      genero: {
+        type: DataTypes.STRING(15),
+        allowNull: false
+      },
       complemento: {
         type: DataTypes.STRING(45),
         allowNull: false

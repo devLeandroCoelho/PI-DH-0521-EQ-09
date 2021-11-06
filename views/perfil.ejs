@@ -1,94 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<!--HEAD DA PAGINA-->
-	<%- include('./partials/head') %>
+<!--HEAD DA PAGINA-->
+<%- include('./partials/head') %>
 
-<body>
-	<!-- HEADER -->
-	<%- include('./partials/header') %>
-	<!-- NAVIGATION -->
-	<%- include('./partials/nav') %>
-<!-- BREADCRUMB -->
-<div id="breadcrumb" class="section">
-	<!-- container -->
-	<div class="container">
-		<!-- row -->
-		<div class="row">
-			<div class="col-md-12">
-				<h3 class="breadcrumb-header">meu cadastro</h3>
-				
-			</div>
-		</div>
-		<!-- /row -->
-	</div>
-	<!-- /container -->
-</div>
-<!-- /BREADCRUMB -->
+	<body>
+		<!-- HEADER -->
+		<%- include('./partials/header') %>
+			<!-- NAVIGATION -->
+			<%- include('./partials/nav') %>
+				<!-- BREADCRUMB -->
+				<div id="breadcrumb" class="section">
+					<!-- container -->
+					<div class="container">
+						<!-- row -->
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="breadcrumb-header">meu cadastro</h3>
 
-<!-- SECTION -->
-<div class="section">
-	<!-- container -->
-	<div class="container">
-		<!-- row -->
-		<div class="row">
-
-			<div class="col-md-7" >
-				<!-- Billing Details -->
-				<div class="billing-details" >
-					<div class="section-title">
-						<h3 class="title">Configure seu cadastro</h3>
+							</div>
+						</div>
+						<!-- /row -->
 					</div>
-					<label for="nome">Informe seu Nome</label>
-					<div class="form-group">
-						<input class="input" type="text" name="nome" >
-					</div>
-					
-					<label for="cpf">Informe seu CPF</label>
-					<div class="form-group">
-						<input class="input" type="text" name="cpf" >
-					</div>
-					<label for="sexo">Informe seu gênero</label>
-					<div class="form-group">
-					<input type="radio" name="sexo" value="masculino">Masculino <br>
-					<input type="radio" name="sexo" value="feminino">Feminino <br>
-					<input type="radio" name="sexo" value="naoinformar">Prefiro não informar<br>
-					</div>
-					<label for="telefone">Informe seu telefone</label>
-					<div class="form-group">
-						<input class="input" type="tel" name="telefone">
-					</div>
-					<h3>Adicionar endereço</h3>
-				
-					<label for="cep">CEP</label>
-					<div class="form-group">
-						<input class="input" type="number" name="cep" >
-					</div>
-					<label for="rua">Rua</label>
-					<div class="form-group">
-						<input class="input" type="text" name="rua" >
-					</div>
-					<label for="numero">Número</label>
-					<div class="form-group">
-						<input class="input" type="number" name="numero" >
-					</div>
-					<label for="complemento">Complemento</label>
-					<div class="form-group">
-						<input class="input" type="text" name="complemento" >
-					</div>
-					
-					
-					<a href="#" class="primary-btn order-submit">Salvar alterações</a>
+					<!-- /container -->
 				</div>
-					
+				<!-- /BREADCRUMB -->
+
+
+				<!-- <form>
+	<label for="fname">First name:</label><br>
+	<input type="text" id="fname" name="fname"><br>
+	<label for="lname">Last name:</label><br>
+	<input type="text" id="lname" name="lname">
+	 <input type="submit" value="Submit">
+  </form> -->
+				<!-- SECTION -->
+				<div class="section">
+					<!-- container -->
+					<div class="container">
+						<!-- row -->
+
+						<form action="/addBd" method="POST">
+							<div class="row">
+								<div class="col-md-7">
+									<!-- Billing Details -->
+									<div class="billing-details">
+										<div class="section-title">
+											<h3 class="title">Configure seu cadastro</h3>
+										</div>
+										<label for="nome">Informe seu Nome</label>
+										<div class="form-group">
+											<input class="input" type="text" name="nome">
+										</div>
+										<label for="cpf">Informe seu CPF</label>
+										<div class="form-group">
+											<input class="input" type="text" name="cpf">
+										</div>
+										<label for="email">Informe seu email</label>
+										<div class="form-group">
+											<input class="input" type="text" name="email" >
+										</div>
+										<label for="senha">Informe sua senha</label>
+										<div class="form-group">
+											<input type="password" class="input" type="text" name="senha"  minlength="8" required>
+										</div>
+										<label for="genero">Informe seu gênero</label>
+										<div class="form-group">
+											<input type="radio" name="genero" value="masculino">Masculino <br>
+											<input type="radio" name="genero" value="feminino">Feminino <br>
+											<input type="radio" name="genero" value="naoinformar">Prefiro não informar<br>
+										</div>
+										<label for="telefone">Informe seu telefone</label>
+										<div class="form-group">
+											<input class="input" type="tel" name="telefone">
+										</div>
+										<h3>Adicionar endereço</h3>
+										<label for="cep">CEP</label>
+										<div class="form-group">
+											<input class="input" type="number" name="cep">
+										</div>
+										<label for="rua">Rua</label>
+										<div class="form-group">
+											<input class="input" type="text" name="endereco">
+										</div>
+										<label for="numero">Número</label>
+										<div class="form-group">
+											<input class="input" type="number" name="numero">
+										</div>
+										<label for="complemento">Complemento</label>
+										<div class="form-group">
+											<input class="input" type="text" name="complemento">
+										</div>
+										<div class="row">
+													<input type="submit" value="Salvar alterações"></input>
+												</div>
+													
+												</div>
+												<!-- /Billing Details -->
+									
+									</div>
+
+								</div>
+								<!-- /Billing Details -->
+							</div>
+						</form>
+
+						<!-- /row -->
+					</div>
+					<!-- /container -->
 				</div>
-				<!-- /Billing Details -->
-		</div>
-		<!-- /row -->
-	</div>
-	<!-- /container -->
-</div>
-		<!-- /SECTION -->
-		<%- include('./partials/redesSociais') %>
-		<%- include('./partials/footer') %>
+				<!-- /SECTION -->
+				<%- include('./partials/redesSociais') %>
+					<%- include('./partials/footer') %>
 	</body>
+
 </html>
