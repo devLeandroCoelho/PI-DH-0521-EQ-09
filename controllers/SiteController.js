@@ -1,4 +1,8 @@
 module.exports = {
+
+	
+
+
 	index: (req, res) => {
 		res.render('index', { title: 'Desapeguei - Home' });
 	},
@@ -41,4 +45,6 @@ module.exports = {
 	favoritos: (req, res) => {
 		res.render('favoritos', { title: 'Desapeguei - Favoritos' });
 	}
+
+
 }

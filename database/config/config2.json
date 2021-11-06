@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "xpto",
-    "database": "xpto",
+    "password": "abcd1234",
+    "database": "desapeguei",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "port":3306
@@ -19,6 +19,7 @@
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
+    
     "dialect": "mysql"
   }
 }

@@ -10,16 +10,16 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
-        usuarios_id: {
-          type: Sequelize.DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-            model: {
-              tableName: 'anuncios'
-            },
-            key: 'id'
-          } 
-        },
+        // usuarios_id: {
+        //   type: Sequelize.DataTypes.INTEGER,
+        //   allowNull: false,
+        //   references: {
+        //     model: {
+        //       tableName: 'anuncios'
+        //     },
+        //     key: 'id'
+        //   } 
+        // },
           status_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,

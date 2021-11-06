@@ -20,9 +20,9 @@ module.exports = {
             },
             key: 'id'
           },
-            descricao: {type: Sequelize.DataTypes.VARCHAR(500)},
+            descricao: {type: Sequelize.DataTypes.TEXT},
             valor: {type: Sequelize.DataTypes.DOUBLE},
-            localizacao: {type: Sequelize.DataTypes.VARCHAR(45)}  
+            localizacao: {type: Sequelize.DataTypes.STRING(45)}  
           },
           categoria_id: {
             type: Sequelize.DataTypes.INTEGER,
@@ -47,9 +47,9 @@ module.exports = {
             }
 
           },
-          descricao: { type: Sequelize.DataTypes.VARCHAR(500) },
+          descricao: { type: Sequelize.DataTypes.TEXT},
           valor: { type: Sequelize.DataTypes.DOUBLE },
-          localizacao: { type: Sequelize.DataTypes.VARCHAR(45) }
+          localizacao: { type: Sequelize.DataTypes.STRING(45) }
         })
       },
 
