@@ -10,7 +10,7 @@ module.exports = {
         email: {type: Sequelize.DataTypes.STRING(45), allowNull: false, unique: true},
         telefone: {type: Sequelize.DataTypes.STRING(12), allowNull: false},
         endereco: {type: Sequelize.DataTypes.STRING(45), allowNull: false},
-        senha: {type: Sequelize.DataTypes.STRING(25), allowNull: false}
+        senha: {type: Sequelize.DataTypes.STRING(256), allowNull: false}
       }
     )
   },
