@@ -47,8 +47,12 @@ module.exports = {
 	perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
 	},
-	itens: (req, res) => {
-		res.render('itens', { title: 'Desapeguei - Itens' });
+	 itens: async (req, res) => {
+		const todosProdutos = await Anuncio.findAll({
+limit:10
+		})
+		res.render('itens', { title: 'Desapeguei - Itens', produtos: todosProdutos });
+		//enviar dois arrays , um para favoritados, outro para recem adicionados, junto com o title.
 	},
 	buscar: (req, res) => {
 		res.render('buscar', { title: 'Desapeguei - Buscar', id: req.params.id });
