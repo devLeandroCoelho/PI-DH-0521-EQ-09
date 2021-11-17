@@ -22,6 +22,7 @@ router.get('/buscar', SiteController.buscar);
 router.get('/buscar/:id', SiteController.buscar);
 router.post('/addBb', SiteController.addBd);
 router.post('/login', SiteController.fazerlogin);
+router.post('/addproduto', SiteController.addproduto);
 
 
 

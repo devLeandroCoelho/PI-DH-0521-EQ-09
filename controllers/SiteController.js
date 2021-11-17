@@ -72,6 +72,7 @@ module.exports = {
 			res.redirect("/login")
 		}
 		req.session.usuario = umUsuario
+		
 		res.send('ok')
 
 	}

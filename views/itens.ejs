@@ -1,204 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!--HEAD DA PAGINA-->
-	<%- include('./partials/head') %>
+<!--HEAD DA PAGINA-->
+<%- include('./partials/head') %>
+
 	<body>
-			<!-- HEADER -->
-	<%- include('./partials/header') %>
-	<!-- NAVIGATION -->
-	<%- include('./partials/nav') %>
+		<!-- HEADER -->
+		<%- include('./partials/header') %>
+			<!-- NAVIGATION -->
+			<%- include('./partials/nav') %>
 
 
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					
-
-					<!-- STORE -->
-					<div id="store" class="col-md-9">
-					
-
-						<!-- store products -->
+				<!-- SECTION -->
+				<div class="section">
+					<!-- container -->
+					<div class="container">
+						<!-- row -->
 						<div class="row">
-							<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									
-									<div class="product-body">
-										<h3 class="product-name"><a href="#">Notebook Lenovo</a></h3>
-										<div class="product-img">
-											<img src="/images/product01.png" alt="">
-										</div>
-										<h4 class="product-price">R$ 2.500,00</h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Favoritar esse produto</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i> Favoritar</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-								<!-- product -->
+							<% produtos.forEach(produto=>{ %>
 								<div class="col-md-4 col-xs-6">
 									<div class="product">
-										
-										<div class="product-body">
-											<h3 class="product-name"><a href="#">Notebook Lenovo</a></h3>
-											<div class="product-img">
-												<img src="/images/product01.png" alt="">
-											</div>
-											<h4 class="product-price">R$ 2.500,00</h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Favoritar esse produto</span></button>
-											</div>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i> Favoritar</button>
-										</div>
-									</div>
-								</div>
-								<!-- /product -->
-									<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									
-									<div class="product-body">
-										<h3 class="product-name"><a href="#">Notebook Lenovo</a></h3>
-										<div class="product-img">
-											<img src="/images/product01.png" alt="">
-										</div>
-										<h4 class="product-price">R$ 2.500,00</h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Favoritar esse produto</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i> Favoritar</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-								<!-- product -->
-								<div class="col-md-4 col-xs-6">
-									<div class="product">
-										
-										<div class="product-body">
-											<h3 class="product-name"><a href="#">Notebook Lenovo</a></h3>
-											<div class="product-img">
-												<img src="/images/product01.png" alt="">
-											</div>
-											<h4 class="product-price">R$ 2.500,00</h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Favoritar esse produto</span></button>
-											</div>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i> Favoritar</button>
-										</div>
-									</div>
-								</div>
-								<!-- /product -->
-									<!-- product -->
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									
-									<div class="product-body">
-										<h3 class="product-name"><a href="#">Notebook Lenovo</a></h3>
-										<div class="product-img">
-											<img src="/images/product01.png" alt="">
-										</div>
-										<h4 class="product-price">R$ 2.500,00</h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Favoritar esse produto</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i> Favoritar</button>
-									</div>
-								</div>
-							</div>
-							<!-- /product -->
-								<!-- product -->
-								<div class="col-md-4 col-xs-6">
-									<div class="product">
-										<div class="product-body">
-											<h3 class="product-name"><a href="#">Notebook Lenovo</a></h3>
-											<div class="product-img">
-												<img src="/images/product01.png" alt="">
-											</div>
-											<h4 class="product-price">R$ 2.500,00</h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Favoritar esse produto</span></button>
-											</div>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i> Favoritar</button>
-										</div>
-									</div>
-								</div>
-								<!-- /product -->
-						</div>
-						<!-- /store products -->
 
-						
+										<div class="product-body">
+											<h3 class="product-name"><a href="#"><%= produto.titulo %></a></h3>
+											<div class="product-img">
+												<img src="/images/product01.png" alt="">
+											</div>
+											<h4 class="product-price"><%= produto.valor %></h4>
+											<div class="product-rating">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="product-btns">
+												<a class="add-to-wishlist" href="<%= produto.id %>"><i class="fa fa-heart-o"></i><span
+														class="tooltipp">Favoritar esse produto</span></a>
+											</div>
+										</div>
+										<div class="add-to-cart">
+											<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i>
+												Favoritar</button>
+										</div>
+									</div>
+								</div>
+								<%})%>
+
+									<!-- STORE -->
+									<div id="store" class="col-md-9">
+
+
+										<!-- store products -->
+										<div class="row">
+
+
+										</div>
+										<!-- /STORE -->
+									</div>
+									<!-- /row -->
+						</div>
+						<!-- /container -->
 					</div>
-					<!-- /STORE -->
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /SECTION -->
-	<!-- /SECTION -->
-		<%- include('./partials/redesSociais') %>
-		<%- include('./partials/footer') %>
+					<!-- /SECTION -->
+					<!-- /SECTION -->
+					<%- include('./partials/redesSociais') %>
+						<%- include('./partials/footer') %>
 
 	</body>
+
 </html>
