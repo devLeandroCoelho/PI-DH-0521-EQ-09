@@ -1,4 +1,5 @@
-Post = require("../database/models/Post")
+
+const {Usuario} = require("../database/models")
 
 module.exports = {
 
@@ -63,4 +64,15 @@ module.exports = {
 
 		})
 	},
+	fazerlogin : async (req, res) => {
+		const {email, password} = req.body
+		const umUsuario = await Usuario.findOne({where: {email: email}})
+		console.log(umUsuario)
+		if(umUsuario === null){
+			res.redirect("/login")
+		}
+		req.session.usuario = umUsuario
+		res.send('ok')
+
+	}
 }	
