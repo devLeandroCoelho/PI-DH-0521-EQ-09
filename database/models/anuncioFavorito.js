@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     anuncios_favoritos.belongsTo(
       models.Anuncio,
       {
-        as: 'anuncios_favoritos_anuncios',
+        as: 'anuncios_favoritos',
         foreignKey: 'anuncios_id',
       }
     )
