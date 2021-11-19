@@ -33,10 +33,10 @@
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star"></i>
 											</div>
-											<div class="product-btns">
-												<a class="add-to-wishlist" href="<%= produto.id %>"><i class="fa fa-heart-o"></i><span
-														class="tooltipp">Favoritar esse produto</span></a>
-											</div>
+											<form  action="/itens/<%= produto.id %>" method="POST"class="product-btns">
+												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+														class="tooltipp">Favoritar esse produto</span></button>
+											</form>
 										</div>
 										<div class="add-to-cart">
 											<button class="add-to-cart-btn"><i class="fa fa-heart-o"></i>

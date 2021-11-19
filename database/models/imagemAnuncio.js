@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) =>{
         'ImagemAnuncio',
         {
             imagem: {type: DataTypes.STRING(100), allowNull: false},
-            capa: {type: DataTypes.CHAR, allowNull: false},
             anuncio_id: {type: DataTypes.INTEGER, allowNull: false}
         },
         {

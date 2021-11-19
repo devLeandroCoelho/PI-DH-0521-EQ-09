@@ -10,16 +10,26 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true
         },
-        // usuarios_id: {
-        //   type: Sequelize.DataTypes.INTEGER,
-        //   allowNull: false,
-        //   references: {
-        //     model: {
-        //       tableName: 'anuncios'
-        //     },
-        //     key: 'id'
-        //   } 
-        // },
+        usuarios_id: {
+          type: Sequelize.DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: 'usuarios'
+            },
+            key: 'id'
+          } 
+        },
+        anuncios_id: {
+          type: Sequelize.DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: 'anuncios'
+            },
+            key: 'id'
+          } 
+        },
           status_id: {
             type: Sequelize.DataTypes.INTEGER,
             allowNull: false,
@@ -30,8 +40,20 @@ module.exports = {
               key: 'id'
             }
 
-          }
-      })
+          },
+          categoria_id: {
+            type: Sequelize.DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+              model: {
+                tableName: 'categorias'
+              },
+              key: 'id'
+            }
+      }
+      
+    }
+    )
   },
 
   down: async (queryInterface, Sequelize) => {

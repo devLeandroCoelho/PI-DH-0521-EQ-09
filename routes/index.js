@@ -21,6 +21,6 @@ router.get('/buscar', SiteController.buscar);
 router.get('/buscar/:id', SiteController.buscar);
 router.post('/addBd', SiteController.addBd);
 router.post('/addproduto', SiteController.addproduto);
-
+router.post('/itens/:id', SiteController.favoritar);
 
 module.exports = router;

@@ -11,18 +11,17 @@ module.exports = {
           autoIncrement: true
         },
         imagem: { type: Sequelize.DataTypes.STRING(100) },
-        capa: { type: Sequelize.DataTypes.CHAR(1) },
-        // anuncios_id: {
-        //   type: Sequelize.DataTypes.INTEGER,
-        //   allowNull: false,
-        //   references: {
-        //     model: {
-        //       tableName: 'anuncios'
-        //     },
-        //     key: 'id'
-        //   }
+        anuncios_id: {
+          type: Sequelize.DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: {
+              tableName: 'anuncios'
+            },
+            key: 'id'
+          }
 
-        // }
+        }
 
       })
   },

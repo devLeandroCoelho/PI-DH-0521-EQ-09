@@ -1,5 +1,5 @@
 
-const { Usuario, Anuncio, sequelize } = require('../database/models');
+const { Usuario, Anuncio, Anuncio_Favorito, sequelize } = require('../database/models');
 const bcrypt = require('bcrypt');
 //exemplo
 // Usuario.findAll().then(
@@ -47,9 +47,9 @@ module.exports = {
 	perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
 	},
-	 itens: async (req, res) => {
+	itens: async (req, res) => {
 		const todosProdutos = await Anuncio.findAll({
-limit:10
+			limit: 10
 		})
 		res.render('itens', { title: 'Desapeguei - Itens', produtos: todosProdutos });
 		//enviar dois arrays , um para favoritados, outro para recem adicionados, junto com o title.
@@ -57,8 +57,14 @@ limit:10
 	buscar: (req, res) => {
 		res.render('buscar', { title: 'Desapeguei - Buscar', id: req.params.id });
 	},
-	favoritos: (req, res) => {
-		res.render('favoritos', { title: 'Desapeguei - Favoritos' });
+	favoritos: async (req, res) => {
+		const produtosFavoritados = await Anuncio_Favorito.findAll({
+			limit: 10, include: {
+			as: 'anuncios_favoritos_anuncios',
+			model: Anuncio}
+		})
+		console.log(produtosFavoritados)
+		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
 	},
 	addBd: (req, res) => {
 
@@ -89,10 +95,10 @@ limit:10
 			descricao: req.body.description,
 			categoria_id: req.body.categoria_id,
 			status_id: 2,
-			valor: req.body.valor, 
+			valor: req.body.valor,
 			localizacao: req.body.localizacao,
 			imagem: req.body.file
-// telefone:req.body.telefone,
+			// telefone:req.body.telefone,
 
 		}).then(function () {
 			res.send("Anuncio inserido com sucesso!")
@@ -102,5 +108,21 @@ limit:10
 
 		})
 
+	},
+	favoritar: async (req, res) => {
+
+
+
+		const idFavoritado = req.params.id;
+		await Anuncio_Favorito.create({
+
+			anuncios_id: idFavoritado,
+			usuarios_id: 1,
+			status_id: 2,
+			categoria_id: 1
+		})
+		res.redirect('/favoritos');
 	}
+
+
 }
