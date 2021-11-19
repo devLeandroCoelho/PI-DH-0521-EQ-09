@@ -10,22 +10,22 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(12),
         allowNull: false
       },
-      cpf: {
-        type: DataTypes.STRING(11),
-        allowNull: false
-      },
+      //cpf: {
+       // type: DataTypes.STRING(11),
+       // allowNull: false
+      //},
       endereco: {
         type: DataTypes.STRING(45),
         allowNull: false
       },
-      genero: {
+      /*genero: {
         type: DataTypes.STRING(15),
         allowNull: false
       },
       complemento: {
         type: DataTypes.STRING(45),
         allowNull: false
-      },
+      },*/
       email: {
         type: DataTypes.STRING(45),
         allowNull: false,

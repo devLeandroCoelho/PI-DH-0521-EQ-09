@@ -39,10 +39,10 @@ module.exports = {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
 	},
 	login: (req, res) => {
+		if(typeof req.session.usuario !== 'undefined' && req.session.usuario){
+			res.redirect('/perfil')
+		}
 		res.render('login', { title: 'Desapeguei - Login' });
-	},
-	cadastro: (req, res) => {
-		res.render('cadastro', { title: 'Desapeguei - Cadastro' });
 	},
 	perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
@@ -67,14 +67,11 @@ module.exports = {
 		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
 	},
 	addBd: (req, res) => {
-
-		console.log(req.body)
-		Usuario.create({
+		Post.create({
 			nome: req.body.nome,
 			email: req.body.email,
 			cpf: req.body.cpf,
 			telefone: req.body.telefone,
-			complemento: req.body.complemento,
 			genero: req.body.genero,
 			endereco: req.body.endereco,
 			senha: bcrypt.hashSync(req.body.senha, 10)
@@ -103,10 +100,21 @@ module.exports = {
 		}).then(function () {
 			res.send("Anuncio inserido com sucesso!")
 		}).catch(function (erro) {
-			console.log(erro)
 			res.send("Houve um erro na insercao do anuncio.")
 
 		})
+	},
+	fazerlogin : async (req, res) => {
+		const {email, senha} = req.body
+		const umUsuario = await Usuario.findOne({where: {email: email}})
+		if(umUsuario === null){
+			res.redirect("/login")
+		}
+		if(umUsuario.senha === senha){
+			delete umUsuario.senha
+			req.session.usuario = umUsuario
+			res.redirect(req.session.url)
+		}
 
 	},
 	favoritar: async (req, res) => {
