@@ -14,6 +14,7 @@ router.get('/ajuda', SiteController.help);
 router.get('/produto', SiteController.produto);
 router.get('/cadastroproduto',authUsuario, SiteController.cadastroproduto);
 router.get('/login', SiteController.login);
+router.post('/login', SiteController.fazerlogin)
 router.get('/perfil' , SiteController.perfil);
 router.get('/favoritos', authUsuario, SiteController.favoritos);
 router.get('/itens', SiteController.itens);

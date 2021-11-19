@@ -108,9 +108,10 @@ module.exports = {
 		const {email, senha} = req.body
 		const umUsuario = await Usuario.findOne({where: {email: email}})
 		if(umUsuario === null){
+			//TODO: MANDAR MENSAGEM DE ERRO PARA USUARIO QUE FEZ LOGIN ERRADO
 			res.redirect("/login")
 		}
-		if(umUsuario.senha === senha){
+		if(bcrypt.compareSync(senha, umUsuario.senha)){
 			delete umUsuario.senha
 			req.session.usuario = umUsuario
 			res.redirect(req.session.url)
