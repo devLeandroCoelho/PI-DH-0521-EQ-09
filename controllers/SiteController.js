@@ -31,10 +31,10 @@ module.exports = {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
 	},
 	login: (req, res) => {
+		if(typeof req.session.usuario !== 'undefined' && req.session.usuario){
+			res.redirect('/perfil')
+		}
 		res.render('login', { title: 'Desapeguei - Login' });
-	},
-	cadastro: (req, res) => {
-		res.render('cadastro', { title: 'Desapeguei - Cadastro' });
 	},
 	perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
@@ -65,15 +65,16 @@ module.exports = {
 		})
 	},
 	fazerlogin : async (req, res) => {
-		const {email, password} = req.body
+		const {email, senha} = req.body
 		const umUsuario = await Usuario.findOne({where: {email: email}})
-		console.log(umUsuario)
 		if(umUsuario === null){
 			res.redirect("/login")
 		}
-		req.session.usuario = umUsuario
-		
-		res.send('ok')
+		if(umUsuario.senha === senha){
+			delete umUsuario.senha
+			req.session.usuario = umUsuario
+			res.redirect(req.session.url)
+		}
 
 	}
 }	
