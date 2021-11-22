@@ -40,7 +40,7 @@ module.exports = {
 	},
 	login: (req, res) => {
 		if(typeof req.session.usuario !== 'undefined' && req.session.usuario){
-			res.redirect('/perfil')
+			res.render('index', { title: 'Desapeguei - Home' });
 		}
 		res.render('login', { title: 'Desapeguei - Login' });
 	},
@@ -57,6 +57,15 @@ module.exports = {
 	buscar: (req, res) => {
 		res.render('buscar', { title: 'Desapeguei - Buscar', id: req.params.id });
 	},
+	favoritos: async (req, res) => {
+		const produtosFavoritados = await Anuncio_Favorito.findAll({
+			limit: 10, include: {
+			as: 'anuncios_favoritos_anuncios',
+			model: Anuncio}
+		})
+		console.log(produtosFavoritados)
+		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
+	},
 	addBd: (req, res) => {
 		Post.create({
 			nome: req.body.nome,
@@ -71,7 +80,7 @@ module.exports = {
 		}).catch(function (erro) {
 			console.log(erro)
 			res.send("Houve um erro na insercao do cadastro.")
-			
+
 		})
 	},
 	addproduto: (req, res) => {
@@ -87,12 +96,12 @@ module.exports = {
 			localizacao: req.body.localizacao,
 			imagem: req.body.file
 			// telefone:req.body.telefone,
-			
+
 		}).then(function () {
 			res.send("Anuncio inserido com sucesso!")
 		}).catch(function (erro) {
 			res.send("Houve um erro na insercao do anuncio.")
-			
+
 		})
 	},
 	fazerlogin : async (req, res) => {
@@ -107,31 +116,22 @@ module.exports = {
 			req.session.usuario = umUsuario
 			res.redirect(req.session.url)
 		}
-		
+
 	},
 	favoritar: async (req, res) => {
-		
-		
-		
+
+
+
 		const idFavoritado = req.params.id;
 		await Anuncio_Favorito.create({
-			
+
 			anuncios_id: idFavoritado,
 			usuarios_id: 1,
 			status_id: 2,
 			categoria_id: 1
 		})
 		res.redirect('/favoritos');
-	},
-	
-	favoritos: async (req, res) => {
-		const produtosFavoritados = await Anuncio_Favorito.findAll({
-			limit: 10, include: {
-			as: 'anuncios_favoritos',
-			model: Anuncio}
-		})
-		console.log(produtosFavoritados)
-		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
-	},
-	
+	}
+
+
 }
