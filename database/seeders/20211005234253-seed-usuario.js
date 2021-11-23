@@ -6,7 +6,6 @@ module.exports = {
     return await queryInterface.bulkInsert('usuarios',
     [
       {
-        id: 1,
         nome: 'Sergio',
         cpf: '12343212323',
         telefone: '11987654321',
@@ -16,7 +15,6 @@ module.exports = {
         senha:  bcrypt.hashSync('Teacher',10)
        },
       {
-        id: 2,
         nome: 'Myllena',
         cpf: '11991234596',
         genero: 'feminino',
@@ -26,7 +24,6 @@ module.exports = {
         senha:  bcrypt.hashSync('MyKa1234',10)
       },
       {
-        id: 3,
         nome: 'Lenix',
         cpf: '11234234596',
         genero: 'masculino',
@@ -36,7 +33,6 @@ module.exports = {
         senha:  bcrypt.hashSync('Segredo',10)
       },
       {
-        id: 4,
         nome: 'Leandro ',
         cpf: '1125424596',
         genero: 'masculino',
