@@ -18,19 +18,25 @@ module.exports = {
 	index: async (req, res) => {
 
 		const anunciosMFav = await sequelize.query(`SELECT a.id,
-															a.titulo,
-															a.descricao,
-															a.categoria_id,
-															ia.imagem,
-															COUNT(*) AS qtdFavoritados
-													FROM anuncios a
-													INNER JOIN anuncios_favoritos af ON a.id = af.anuncios_id
-													LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
-													GROUP BY a.id,
-															a.titulo,
-															a.descricao,
-															a.categoria_id,
-															ia.imagem`,{type: QueryTypes.SELECT});
+														a.titulo,
+														a.descricao,
+														a.categoria_id,
+														a.valor,
+														ia.imagem,
+														COUNT(*) AS qtdFavoritados
+												FROM anuncios a
+												INNER JOIN anuncios_favoritos af ON a.id = af.anuncios_id
+												LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+												GROUP BY a.id,
+														a.titulo,
+														a.descricao,
+														a.categoria_id,
+														a.valor,
+														ia.imagem
+														
+												ORDER BY COUNT(*) DESC
+												LIMIT 10
+ `,{type: QueryTypes.SELECT});
 		res.render('index', { title: 'Desapeguei - Home', anunciosMFav });
 	},
 	tdu: (req, res) => {
@@ -55,13 +61,8 @@ module.exports = {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
 	},
 	login: (req, res) => {
-<<<<<<< HEAD
-		if (typeof req.session.usuario !== 'undefined' && req.session.usuario) {
-			res.redirect('/perfil')
-=======
 		if(typeof req.session.usuario !== 'undefined' && req.session.usuario){
 			res.render('index', { title: 'Desapeguei - Home' });
->>>>>>> f36a52e99fc232704e9621821e103202bd5d9801
 		}
 		res.render('login', { title: 'Desapeguei - Login' });
 	},
@@ -153,7 +154,6 @@ module.exports = {
 			categoria_id: 1
 		})
 		res.redirect('/favoritos');
-<<<<<<< HEAD
 	},
 
 	favoritos: async (req, res) => {
@@ -176,9 +176,6 @@ module.exports = {
 
 	},
 
-=======
-	}
->>>>>>> f36a52e99fc232704e9621821e103202bd5d9801
 
 
 }

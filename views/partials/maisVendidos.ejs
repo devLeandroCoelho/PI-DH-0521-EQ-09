@@ -5,7 +5,7 @@
 				<!-- row -->
 				<div class="row">
 
-					<!-- section title -->
+				
 					<div class="col-md-12">
 						<div class="section-title">
 							<h3 class="title">FAVORITOS</h3>
@@ -17,24 +17,24 @@
 					<!-- Products tab & slick -->
 					<div class="col-md-12">
 						<div class="row">
-
 							
+
 							<div class="products-tabs">
 								<!-- tab -->
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										
+										<% anunciosMFav.forEach(anuncioMFav=>{ %>
 										<div class="product">
 											<a href="../produto">
 											<div class="product-img">
-												<img src="/images/notebookacer.png" alt="">
+												<img src="<%= anuncioMFav.imagem %>" alt="">
 
 											</div>
 											<div class="product-body">
-												<p class="product-category">Eletrônicos</p>
-												<h3 class="product-name"><a href="../produto">Notebook Acer Inspirion </a></h3>
-												<h4 class="product-price">R$ 1500,00</h4>
+												<p class="product-category"><%= anuncioMFav.categoria_id %></p>
+												<h3 class="product-name"><a href="../produto"><%= anuncioMFav.titulo %> </a></h3>
+												<h4 class="product-price"><%= anuncioMFav.valor%></h4>
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-star"></i>Favoritos</button>
@@ -42,82 +42,9 @@
 										</a>
 										</div>
 									
+										<%})%>
 										<!-- /product -->
 
-										<!-- product -->
-										<div class="product">
-											<a href="../produto">
-											<div class="product-img">
-												<img src="/images/samsung.png" alt="">
-
-											</div>
-											<div class="product-body">
-												<p class="product-category">Eletrônicos</p>
-												<h3 class="product-name"><a href="../produto">Samsung S8</a></h3>
-												<h4 class="product-price">R$ 800,00</h4>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-star"></i>Favoritos</button>
-											</div>
-										</a>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<a href="../produto">
-											<div class="product-img">
-												<img src="/images/notebookasus.png" alt="">
-
-											</div>
-											<div class="product-body">
-												<p class="product-category">Eletrônicos
-												</p>
-												<h3 class="product-name"><a href="../produto">Notebook ASUS Gamer</a></h3>
-												<h4 class="product-price">R$ 1600,00 </h4>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-star"></i>Favoritos</button>
-											</div>
-										</a>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<a href="../produto">
-											<div class="product-img">
-												<img src="/images/camera.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Eletrônicos</p>
-												<h3 class="product-name"><a href="../produto">Câmera Fotográfica</a></h3>
-												<h4 class="product-price">R$ 1200,00</h4>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-star"></i>Favoritos</button>
-											</div>
-										</a>
-										</div>
-										<!-- /product -->
-
-										<!-- product -->
-										<div class="product">
-											<a href="../produto">
-											<div class="product-img">
-												<img src="/images/notebookhp.png" alt="">
-											</div>
-											<div class="product-body">
-												<p class="product-category">Eletrônicos</p>
-												<h3 class="product-name"><a href="../produto">Notebook HP 256 G8 </a></h3>
-												<h4 class="product-price">R$ 980,00 <del class="product-old-price">R$ 1000,00</h4>
-											</div>
-											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-star"></i>Favoritos</button>
-											</div>
-										</a>
-										</div>
-										<!-- /product -->
 									</div>
 									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>
@@ -131,6 +58,6 @@
 			</div>
 			<!-- /container -->
 
-			<%= anunciosMFav %>
+		
 		</div>
 		<!-- /SECTION -->
