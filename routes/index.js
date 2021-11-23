@@ -6,6 +6,7 @@ const SiteController = require('../controllers/SiteController');
 
 /* METODO GET - INDEX */
 router.get('/', SiteController.index);
+
 router.get('/termodeuso', SiteController.tdu);
 router.get('/politicaprivacidade', SiteController.tdp);
 router.get('/sobre', SiteController.sobre);
