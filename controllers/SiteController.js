@@ -55,8 +55,13 @@ module.exports = {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
 	},
 	login: (req, res) => {
+<<<<<<< HEAD
 		if (typeof req.session.usuario !== 'undefined' && req.session.usuario) {
 			res.redirect('/perfil')
+=======
+		if(typeof req.session.usuario !== 'undefined' && req.session.usuario){
+			res.render('index', { title: 'Desapeguei - Home' });
+>>>>>>> f36a52e99fc232704e9621821e103202bd5d9801
 		}
 		res.render('login', { title: 'Desapeguei - Login' });
 	},
@@ -72,6 +77,15 @@ module.exports = {
 	},
 	buscar: (req, res) => {
 		res.render('buscar', { title: 'Desapeguei - Buscar', id: req.params.id });
+	},
+	favoritos: async (req, res) => {
+		const produtosFavoritados = await Anuncio_Favorito.findAll({
+			limit: 10, include: {
+			as: 'anuncios_favoritos_anuncios',
+			model: Anuncio}
+		})
+		console.log(produtosFavoritados)
+		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
 	},
 	addBd: (req, res) => {
 		Post.create({
@@ -139,6 +153,7 @@ module.exports = {
 			categoria_id: 1
 		})
 		res.redirect('/favoritos');
+<<<<<<< HEAD
 	},
 
 	favoritos: async (req, res) => {
@@ -161,6 +176,9 @@ module.exports = {
 
 	},
 
+=======
+	}
+>>>>>>> f36a52e99fc232704e9621821e103202bd5d9801
 
 
 }
