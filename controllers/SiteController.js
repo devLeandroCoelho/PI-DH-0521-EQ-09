@@ -17,26 +17,25 @@ module.exports = {
 
 	index: async (req, res) => {
 
-		const anunciosMFav = await sequelize.query(`SELECT a.id,
-														a.titulo,
-														a.descricao,
-														a.categoria_id,
-														a.valor,
-														ia.imagem,
-														COUNT(*) AS qtdFavoritados
-												FROM anuncios a
-												INNER JOIN anuncios_favoritos af ON a.id = af.anuncios_id
-												LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
-												GROUP BY a.id,
-														a.titulo,
-														a.descricao,
-														a.categoria_id,
-														a.valor,
-														ia.imagem
-														
-												ORDER BY COUNT(*) DESC
-												LIMIT 10
- `,{type: QueryTypes.SELECT});
+		const anunciosMFav = await sequelize.query(
+	   `SELECT a.id,
+               a.titulo,
+               a.descricao,
+               a.categoria_id,
+               a.valor,
+               ia.imagem,
+               COUNT(*) AS qtdFavoritados
+        FROM anuncios a
+        INNER JOIN anuncios_favoritos af ON a.id = af.anuncios_id
+        LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+        GROUP BY a.id,
+                 a.titulo,
+                 a.descricao,
+                 a.categoria_id,
+                 a.valor,
+                 ia.imagem
+		ORDER BY COUNT(*) DESC
+		LIMIT 10`,{type: QueryTypes.SELECT});
 		res.render('index', { title: 'Desapeguei - Home', anunciosMFav });
 	},
 	tdu: (req, res) => {
@@ -76,8 +75,26 @@ module.exports = {
 		res.render('itens', { title: 'Desapeguei - Itens', produtos: todosProdutos });
 		//enviar dois arrays , um para favoritados, outro para recem adicionados, junto com o title.
 	},
-	buscar: (req, res) => {
-		res.render('buscar', { title: 'Desapeguei - Buscar', id: req.params.id });
+	buscar: async (req, res) => {
+		const resultBusca = await sequelize.query(
+	   `SELECT a.id,
+               a.titulo,
+               a.descricao,
+               a.categoria_id,
+               a.valor,
+               ia.imagem,
+               COUNT(*) AS qtdResultBusca
+        FROM anuncios a
+        LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+        GROUP BY a.id,
+                 a.titulo,
+                 a.descricao,
+                 a.categoria_id,
+                 a.valor,
+                 ia.imagem
+		ORDER BY COUNT(*) DESC
+		LIMIT 50`,{type: QueryTypes.SELECT});
+		res.render('buscar', { title: 'Desapeguei - Home', resultBusca });
 	},
 	favoritos: async (req, res) => {
 		const produtosFavoritados = await Anuncio_Favorito.findAll({
