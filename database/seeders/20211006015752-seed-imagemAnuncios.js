@@ -11,15 +11,15 @@ module.exports = {
       anuncios_id: 1
     },
     {
-      imagem: '/public/images/mesa-de-escritorio',
+      imagem: '/public/images/mesa-de-escritorio.png',
       anuncios_id: 1
     },
     {
-      imagem: '/public/images/cadeira-gamer',
+      imagem: '/public/images/cadeira-gamer.png',
       anuncios_id: 1
     },
     {
-      imagem: '/public/images/armario-de-ferro',
+      imagem: '/public/images/armario-de-ferro.png',
       anuncios_id: 2
     },
     {

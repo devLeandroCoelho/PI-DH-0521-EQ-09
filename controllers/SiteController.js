@@ -1,5 +1,5 @@
 
-const { Usuario, Anuncio, Anuncio_Favorito, sequelize } = require('../database/models');
+const { Usuario, Anuncio, Anuncio_Favorito, ImagemAnuncio, sequelize } = require('../database/models');
 const { QueryTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 //exemplo
@@ -175,10 +175,23 @@ module.exports = {
 
 	favoritos: async (req, res) => {
 		const produtosFavoritados = await Anuncio_Favorito.findAll({
-			limit: 10, include: {
-				as: 'anuncios_favoritos',
-				model: Anuncio
-			}
+			limit: 10,
+			include: [
+				{
+					as: 'anuncios_favoritos',
+					model: Anuncio,
+					// include: {
+					// 	model: ImagemAnuncio,
+					// },
+				},
+				{
+					as: 'anuncios_favoritos_usuarios',
+					model: Usuario,
+					where: {
+						id: req.session.usuario.id
+					},
+				}
+		]
 		})
 		console.log(produtosFavoritados)
 		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });

@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
 
   const anuncios = sequelize.define(
     'Anuncio', {
+      id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
       titulo: DataTypes.STRING,
       usuarios_id: {
         type: DataTypes.INTEGER,
@@ -55,8 +56,8 @@ module.exports = (sequelize, DataTypes) => {
     )
     anuncios.hasMany(
       models.ImagemAnuncio, {
-        as: 'Anuncios-Imagem_Anuncios',
-        foreignKey: 'anuncio_id'
+        //as: 'Anuncios_Imagem_Anuncios',
+        foreignKey: 'id'
       }
     )
   }

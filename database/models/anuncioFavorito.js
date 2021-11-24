@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const anuncios_favoritos = sequelize.define(
     'Anuncio_Favorito',
     {
+      id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
       usuarios_id: { type: DataTypes.INTEGER, allowNull: false },
       anuncios_id: { type: DataTypes.INTEGER, allowNull: false },
       status_id: { type: DataTypes.INTEGER, allowNull: false },
