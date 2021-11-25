@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) =>{
         {
             id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
             imagem: {type: DataTypes.STRING(100), allowNull: false},
-            anuncio_id: {type: DataTypes.INTEGER, allowNull: false}
+            anuncios_id: {type: DataTypes.INTEGER, allowNull: false}
         },
         {
             tableName: "imagem_anuncios",
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) =>{
           models.Anuncio,
           {
             as: 'imagem_anuncio_anuncio',
-            foreignKey: 'anuncio_id',
+            foreignKey: 'anuncios_id',
           }
         )
     }

@@ -26,6 +26,14 @@ module.exports = {
       descricao: {
         type: Sequelize.DataTypes.TEXT
       },
+      telefone: {
+        type: Sequelize.DataTypes.STRING(500),
+        allowNull: false
+      },
+      cpf: {
+        type: Sequelize.DataTypes.STRING(500),
+        allowNull: false
+      },
       valor: {
         type: Sequelize.DataTypes.DOUBLE
       },

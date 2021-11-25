@@ -180,9 +180,9 @@ module.exports = {
 				{
 					as: 'anuncios_favoritos',
 					model: Anuncio,
-					// include: {
-					// 	model: ImagemAnuncio,
-					// },
+					include: {
+						model: ImagemAnuncio,
+					},
 				},
 				{
 					as: 'anuncios_favoritos_usuarios',

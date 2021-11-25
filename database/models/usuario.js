@@ -6,15 +6,15 @@ module.exports = (sequelize, DataTypes) => {
       nome: {
         type: DataTypes.STRING(45),
         allowNull: false
-      },
+      }, cpf: {
+        type: DataTypes.STRING(11),
+        allowNull: false
+       },
       telefone: {
         type: DataTypes.STRING(12),
         allowNull: false
       },
-      //cpf: {
-       // type: DataTypes.STRING(11),
-       // allowNull: false
-      //},
+     
       endereco: {
         type: DataTypes.STRING(45),
         allowNull: false
