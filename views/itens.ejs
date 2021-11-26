@@ -24,7 +24,7 @@
 											<h3 class="product-name"><a href="#"><%= produto.titulo %></a></h3>
 											<div class="product-img">
 												<img src="<%= produto.imagem %>" alt="">
-												//TODO: ALTERAR AS IMAGENS COM EJS
+												<%= JSON.stringify(produto) %>
 											</div>
 											<h4 class="product-price"><%= produto.valor %></h4>
 											<div class="product-rating">

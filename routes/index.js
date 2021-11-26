@@ -19,6 +19,7 @@ router.post('/login', SiteController.fazerlogin)
 router.get('/perfil' , SiteController.perfil);
 router.get('/favoritos', authUsuario, SiteController.favoritos);
 router.get('/itens', SiteController.itens);
+router.get('/itens/:categoria', SiteController.itens);
 router.get('/buscar', SiteController.buscar);
 router.get('/buscar/:id', SiteController.buscar);
 router.post('/addBd', SiteController.addBd);

@@ -1,5 +1,5 @@
 
-const { Usuario, Anuncio, Anuncio_Favorito, ImagemAnuncio, sequelize } = require('../database/models');
+const { Usuario, Anuncio, Anuncio_Favorito, ImagemAnuncio, sequelize, Categoria } = require('../database/models');
 const { QueryTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 //exemplo
@@ -61,7 +61,7 @@ module.exports = {
 	},
 	login: (req, res) => {
 		if(typeof req.session.usuario !== 'undefined' && req.session.usuario){
-			res.render('index', { title: 'Desapeguei - Home' });
+			res.redirect('/')
 		}
 		res.render('login', { title: 'Desapeguei - Login' });
 	},
@@ -69,10 +69,26 @@ module.exports = {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
 	},
 	itens: async (req, res) => {
-		const todosProdutos = await Anuncio.findAll({
+		const {categoria} = req.params
+		let produtos = null
+		if(typeof(categoria) !== 'undefined'){
+			produtos = await Anuncio.findAll({
+			limit: 10,
+			include: {
+				as: 'anuncio_categoria',
+				model: Categoria,
+				where:{
+					id: categoria
+				}
+			}
+		})
+		return res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos });
+
+		}
+		produtos = await Anuncio.findAll({
 			limit: 10
 		})
-		res.render('itens', { title: 'Desapeguei - Itens', produtos: todosProdutos });
+		res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos });
 		//enviar dois arrays , um para favoritados, outro para recem adicionados, junto com o title.
 	},
 	buscar: async (req, res) => {
@@ -96,15 +112,15 @@ module.exports = {
 		LIMIT 50`,{type: QueryTypes.SELECT});
 		res.render('buscar', { title: 'Desapeguei - Home', resultBusca });
 	},
-	favoritos: async (req, res) => {
-		const produtosFavoritados = await Anuncio_Favorito.findAll({
-			limit: 10, include: {
-			as: 'anuncios_favoritos_anuncios',
-			model: Anuncio}
-		})
-		console.log(produtosFavoritados)
-		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
-	},
+	// favoritos: async (req, res) => {
+	// 	const produtosFavoritados = await Anuncio_Favorito.findAll({
+	// 		limit: 10, include: {
+	// 		as: 'anuncios_favoritos',
+	// 		model: Anuncio}
+	// 	})
+	// 	console.log(produtosFavoritados)
+	// 	res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
+	//},
 	addBd: (req, res) => {
 		Post.create({
 			nome: req.body.nome,
@@ -154,7 +170,7 @@ module.exports = {
 		if (bcrypt.compareSync(senha, umUsuario.senha)) {
 			delete umUsuario.senha
 			req.session.usuario = umUsuario
-			res.redirect(req.session.url)
+			res.redirect("/")
 		}
 
 	},
@@ -178,15 +194,19 @@ module.exports = {
 			limit: 10,
 			include: [
 				{
+					
+
 					as: 'anuncios_favoritos',
 					model: Anuncio,
-					include: {
-						model: ImagemAnuncio,
-					},
+					required: true,
+					//include: {all:true}
+					
+					
 				},
 				{
 					as: 'anuncios_favoritos_usuarios',
 					model: Usuario,
+					required: true,
 					where: {
 						id: req.session.usuario.id
 					},
