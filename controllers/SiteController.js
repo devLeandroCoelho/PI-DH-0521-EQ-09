@@ -190,6 +190,7 @@ module.exports = {
 		const produtosFavoritados = await Anuncio_Favorito.findAll({
 			limit: 10,
 			include: [
+				
 				{
 					
 
@@ -207,7 +208,8 @@ module.exports = {
 					where: {
 						id: req.session.usuario.id
 					},
-				}
+				},
+		
 		]
 		})
 		console.log(produtosFavoritados)
