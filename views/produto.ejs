@@ -36,6 +36,8 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
+
+				<% anuncios.forEach(anuncio=>{ %>
 				<!-- Product main img -->
 				<div class="col-md-5 col-md-push-2">
 					<div id="product-main-img">
@@ -56,6 +58,9 @@
 						</div>
 					</div>
 				</div>
+
+				
+
 				<!-- /Product main img -->
 
 				<!-- Product thumb imgs -->
@@ -83,15 +88,11 @@
 				<!-- Product details -->
 				<div class="col-md-5">
 					<div class="product-details">
-						<h2 class="product-name">NOTEBOOK HP 256 </h2>
+						<h2 class="product-name"><%= anuncio.titulo %> </h2>
 						<div>
-							<h3 class="product-price">R$ 980,00 </h3>
+							<h3 class="product-price"><%= anuncio.valor %></h3>
 						</div>
-						<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-							ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-							laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-							voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						<p> <%= anuncio.descricao %>
 						</p>
 
 						<div class="add-to-cart">
@@ -99,13 +100,13 @@
 						</div>
 						<ul class="product-links">
 							<li>Categoria:</li>
-							<li><a href="#">Eletrônicos</a></li>
+							<li><a href="#"><%= anuncio.categoria_id %></a></li>
 
 						</ul>
 					</div>
 				</div>
 				<!-- /Product details -->
-
+				<%})%>
 			</div>
 			<!-- /row -->
 		</div>

@@ -54,7 +54,8 @@ module.exports = {
 		res.render('ajuda', { title: 'Desapeguei - Ajuda' });
 	},
 	produto: (req, res) => {
-		res.render('produto', { title: 'Desapeguei - Produto' });
+		
+		 res.render('produto', { title: 'Desapeguei - Produto' });
 	},
 	cadastroproduto: (req, res) => {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
@@ -109,17 +110,9 @@ module.exports = {
 		LIMIT 50`,{type: QueryTypes.SELECT});
 		res.render('buscar', { title: 'Desapeguei - Home', resultBusca });
 	},
-	// favoritos: async (req, res) => {
-	// 	const produtosFavoritados = await Anuncio_Favorito.findAll({
-	// 		limit: 10, include: {
-	// 		as: 'anuncios_favoritos',
-	// 		model: Anuncio}
-	// 	})
-	// 	console.log(produtosFavoritados)
-	// 	res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
-	//},
+	
 	addBd: (req, res) => {
-		Post.create({
+		Usuario.create({
 			nome: req.body.nome,
 			email: req.body.email,
 			cpf: req.body.cpf,
@@ -129,6 +122,7 @@ module.exports = {
 			senha: bcrypt.hashSync(req.body.senha, 10)
 		}).then(function () {
 			res.send("Cadastro inserido com sucesso!")
+			res.redirect('/')
 		}).catch(function (erro) {
 			console.log(erro)
 			res.send("Houve um erro na insercao do cadastro.")
@@ -137,7 +131,7 @@ module.exports = {
 	},
 	addproduto: (req, res) => {
 		Anuncio.create({
-			usuarios_id: 1,
+			usuarios_id: 4,
 			// Finalizar o login do sistema, para então alterar depois
 			// a  configuração do usuario id no inserir anuncio.
 			titulo: req.body.title,
@@ -146,16 +140,22 @@ module.exports = {
 			status_id: 2,
 			valor: req.body.valor,
 			localizacao: req.body.localizacao,
-			imagem: req.body.file
-			// telefone:req.body.telefone,
+			imagem: req.body.file,
+			telefone:"11987895222",
+			cpf: "12345678925"
+			
 
 		}).then(function () {
 			res.send("Anuncio inserido com sucesso!")
-			res.redirect('/index')
+			res.redirect('/')
 		}).catch(function (erro) {
 			res.send("Houve um erro na insercao do anuncio.")
 
 		})
+		// ImagemAnuncio.create({
+		// 	imagem: req.body.file,
+		// 	anuncios_id : 6
+		// })
 	},
 	fazerlogin: async (req, res) => {
 		const { email, senha } = req.body
@@ -196,7 +196,17 @@ module.exports = {
 					as: 'anuncios_favoritos',
 					model: Anuncio,
 					required: true,
-					//include: {all:true}
+					
+					
+					
+				},
+				{
+					
+
+					as: 'anuncios_imagens',
+					model: ImagemAnuncio,
+					required: true,
+					
 					
 					
 				},

@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'usuarios_id',
       }
     )
+    
   }
   return anuncios_favoritos;
 
