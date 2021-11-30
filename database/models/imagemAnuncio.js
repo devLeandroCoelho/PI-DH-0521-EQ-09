@@ -10,7 +10,6 @@ module.exports = (sequelize, DataTypes) =>{
         {
             tableName: "imagem_anuncios",
             timestamps: false,
-            freezeTableName: true
             }
     );
 

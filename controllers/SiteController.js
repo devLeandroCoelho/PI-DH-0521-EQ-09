@@ -74,13 +74,10 @@ module.exports = {
 		if(typeof(categoria) !== 'undefined'){
 			produtos = await Anuncio.findAll({
 			limit: 10,
-			include: {
-				as: 'anuncio_categoria',
-				model: Categoria,
-				where:{
-					id: categoria
-				}
-			}
+			where:{
+				categoria_id:categoria
+			},
+			include:["imagens"]
 		})
 		return res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos });
 

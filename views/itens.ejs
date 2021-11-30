@@ -23,8 +23,8 @@
 										<div class="product-body">
 											<h3 class="product-name"><a href="#"><%= produto.titulo %></a></h3>
 											<div class="product-img">
-												<img src="<%= produto.imagem %>" alt="">
-												<%= JSON.stringify(produto) %>
+												<img src="<%= produto.imagens[0].imagem %>" alt="">
+											
 											</div>
 											<h4 class="product-price"><%= produto.valor %></h4>
 											<div class="product-rating">
