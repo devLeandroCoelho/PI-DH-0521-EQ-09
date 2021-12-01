@@ -54,9 +54,10 @@ module.exports = {
 	help: (req, res) => {
 		res.render('ajuda', { title: 'Desapeguei - Ajuda' });
 	},
-	produto: (req, res) => {
-
-		res.render('produto', { title: 'Desapeguei - Produto' });
+	produto: async (req, res) => {
+		const id = req.params.id
+		const produtos =  await Anuncio.findOne({ where: { id: Number(id) } , include : ["imagens"]})
+		res.render('produto', { title: 'Desapeguei - Produto' , anuncio:produtos });
 	},
 	cadastroproduto: (req, res) => {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
@@ -203,16 +204,6 @@ module.exports = {
 
 					as: 'anuncios_favoritos',
 					model: Anuncio,
-					required: true,
-
-
-
-				},
-				{
-
-
-					as: 'anuncios_imagens',
-					model: ImagemAnuncio,
 					required: true,
 
 

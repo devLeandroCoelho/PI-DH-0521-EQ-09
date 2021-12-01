@@ -3,120 +3,101 @@
 <!--HEAD DA PAGINA-->
 <%- include('./partials/head') %>
 
-<body>
-	<!-- HEADER -->
-	<%- include('./partials/header') %>
+	<body>
+		<!-- HEADER -->
+		<%- include('./partials/header') %>
 
-	<!-- NAVIGATION -->
-	<%- include('./partials/nav') %>
+			<!-- NAVIGATION -->
+			<%- include('./partials/nav') %>
 
-	<!-- BREADCRUMB -->
-	<div id="breadcrumb" class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
-				<div class="col-md-12">
-					<ul class="breadcrumb-tree">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Eletrônicos</a></li><!-- RECADO PARA BACKEND - COLOCAR AQUI A CATEGORIA -->
-						<li><a href="#">NOTEBOOK HP 256</a></li><!--RECADO PARA BACKEND - COLOCAR AQUI O TITULO DO PRODUTO -->
-					</ul>
+				<!-- BREADCRUMB -->
+				<div id="breadcrumb" class="section">
+					<!-- container -->
+					<div class="container">
+						<!-- row -->
+						<div class="row">
+							<div class="col-md-12">
+								<ul class="breadcrumb-tree">
+									<li><a href="#">Home</a></li>
+									<li><a href="#">Eletrônicos</a></li>
+									<!-- RECADO PARA BACKEND - COLOCAR AQUI A CATEGORIA -->
+									<li><a href="#">NOTEBOOK HP 256</a></li>
+									<!--RECADO PARA BACKEND - COLOCAR AQUI O TITULO DO PRODUTO -->
+								</ul>
+							</div>
+						</div>
+						<!-- /row -->
+					</div>
+					<!-- /container -->
 				</div>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /BREADCRUMB -->
+				<!-- /BREADCRUMB -->
 
-	<!-- SECTION -->
-	<div class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
+				<!-- SECTION -->
+				<div class="section">
+					<!-- container -->
+					<div class="container">
+						<!-- row -->
 
-				<% anuncios.forEach(anuncio=>{ %>
-				<!-- Product main img -->
-				<div class="col-md-5 col-md-push-2">
-					<div id="product-main-img">
-						<div class="product-preview">
-							<img src="/images/product01.png" alt="">
-						</div>
 
-						<div class="product-preview">
-							<img src="/images/product03.png" alt="">
-						</div>
 
-						<div class="product-preview">
-							<img src="/images/product06.png" alt="">
-						</div>
 
-						<div class="product-preview">
-							<img src="/images/product08.png" alt="">
+
+						<div class="row">
+							<!-- /Product main img -->
+							<div class="col-md-7">
+								<!-- Product thumb imgs -->
+								<div class="product-img">
+
+									<img src="<%= anuncio.imagens[0].imagem %>" alt="" >
+
+								</div>
+							</div>
+
+							<!-- /Product thumb imgs -->
+
+							<!-- Product details -->
+							<div class="col-md-5">
+								<div class="product-details">
+									<h2 class="product-name">
+										<%= anuncio.titulo %>
+									</h2>
+									<div>
+										<h3 class="product-price">
+											<%= anuncio.valor %>
+										</h3>
+									</div>
+									<p>
+										<%= anuncio.descricao %>
+									</p>
+
+									<p>
+									Telefone para contato:  <%= anuncio.telefone %>
+									</p>
+
+									<div class="add-to-cart">
+										<button class="add-to-cart-btn"><i class=""></i>Favoritos</button>
+									</div>
+									<ul class="product-links">
+										<li>Categoria:</li>
+										<li><a href="#">
+												<%= anuncio.categoria_id %>
+											</a></li>
+
+									</ul>
+								</div>
+							</div>
+							<!-- /Product details -->
 						</div>
 					</div>
+					<!-- /row -->
 				</div>
-
-				
-
-				<!-- /Product main img -->
-
-				<!-- Product thumb imgs -->
-				<div class="col-md-2  col-md-pull-5">
-					<div id="product-imgs">
-						<div class="product-preview">
-							<img src="/images/product01.png" alt="">
-						</div>
-
-						<div class="product-preview">
-							<img src="/images/product03.png" alt="">
-						</div>
-
-						<div class="product-preview">
-							<img src="/images/product06.png" alt="">
-						</div>
-
-						<div class="product-preview">
-							<img src="/images/product08.png" alt="">
-						</div>
-					</div>
+				<!-- /container -->
 				</div>
-				<!-- /Product thumb imgs -->
+				<!-- /SECTION -->
+				<%- include('./partials/produtosRelacionados') %>
+					<%- include('./partials/redesSociais') %>
+						<%- include('./partials/footer') %>
 
-				<!-- Product details -->
-				<div class="col-md-5">
-					<div class="product-details">
-						<h2 class="product-name"><%= anuncio.titulo %> </h2>
-						<div>
-							<h3 class="product-price"><%= anuncio.valor %></h3>
-						</div>
-						<p> <%= anuncio.descricao %>
-						</p>
-
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class=""></i>Favoritos</button>
-						</div>
-						<ul class="product-links">
-							<li>Categoria:</li>
-							<li><a href="#"><%= anuncio.categoria_id %></a></li>
-
-						</ul>
-					</div>
-				</div>
-				<!-- /Product details -->
-				<%})%>
-			</div>
-			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /SECTION -->
-	<%- include('./partials/produtosRelacionados') %>
-	<%- include('./partials/redesSociais') %>
-	<%- include('./partials/footer') %>
-
-</body>
+	</body>
 
 </html>

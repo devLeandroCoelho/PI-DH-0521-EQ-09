@@ -15,7 +15,7 @@ router.get('/politicaprivacidade', SiteController.tdp);
 router.get('/sobre', SiteController.sobre);
 router.get('/contato', SiteController.contato);
 router.get('/ajuda', SiteController.help);
-router.get('/produto', SiteController.produto);
+router.get('/produto/:id', SiteController.produto);
 router.get('/cadastroproduto',authUsuario, SiteController.cadastroproduto);
 router.get('/login', SiteController.login);
 router.post('/login', SiteController.fazerlogin)
