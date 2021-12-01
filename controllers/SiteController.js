@@ -2,6 +2,7 @@
 const { Usuario, Anuncio, Anuncio_Favorito, ImagemAnuncio, sequelize, Categoria } = require('../database/models');
 const { QueryTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
+
 //exemplo
 // Usuario.findAll().then(
 //     data=>{
@@ -18,7 +19,7 @@ module.exports = {
 	index: async (req, res) => {
 
 		const anunciosMFav = await sequelize.query(
-	   `SELECT a.id,
+			`SELECT a.id,
                a.titulo,
                a.descricao,
                a.categoria_id,
@@ -35,7 +36,7 @@ module.exports = {
                  a.valor,
                  ia.imagem
 		ORDER BY COUNT(*) DESC
-		LIMIT 10`,{type: QueryTypes.SELECT});
+		LIMIT 10`, { type: QueryTypes.SELECT });
 		res.render('index', { title: 'Desapeguei - Home', anunciosMFav });
 	},
 	tdu: (req, res) => {
@@ -54,14 +55,14 @@ module.exports = {
 		res.render('ajuda', { title: 'Desapeguei - Ajuda' });
 	},
 	produto: (req, res) => {
-		
-		 res.render('produto', { title: 'Desapeguei - Produto' });
+
+		res.render('produto', { title: 'Desapeguei - Produto' });
 	},
 	cadastroproduto: (req, res) => {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
 	},
 	login: (req, res) => {
-		if(typeof req.session.usuario !== 'undefined' && req.session.usuario){
+		if (typeof req.session.usuario !== 'undefined' && req.session.usuario) {
 			res.redirect('/')
 		}
 		res.render('login', { title: 'Desapeguei - Login' });
@@ -70,17 +71,17 @@ module.exports = {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
 	},
 	itens: async (req, res) => {
-		const {categoria} = req.params
+		const { categoria } = req.params
 		let produtos = null
-		if(typeof(categoria) !== 'undefined'){
+		if (typeof (categoria) !== 'undefined') {
 			produtos = await Anuncio.findAll({
-			limit: 10,
-			where:{
-				categoria_id:categoria
-			},
-			include:["imagens"]
-		})
-		return res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos });
+				limit: 10,
+				where: {
+					categoria_id: categoria
+				},
+				include: ["imagens"]
+			})
+			return res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos });
 
 		}
 		produtos = await Anuncio.findAll({
@@ -91,7 +92,7 @@ module.exports = {
 	},
 	buscar: async (req, res) => {
 		const resultBusca = await sequelize.query(
-	   `SELECT a.id,
+			`SELECT a.id,
                a.titulo,
                a.descricao,
                a.categoria_id,
@@ -107,10 +108,10 @@ module.exports = {
                  a.valor,
                  ia.imagem
 		ORDER BY COUNT(*) DESC
-		LIMIT 50`,{type: QueryTypes.SELECT});
+		LIMIT 50`, { type: QueryTypes.SELECT });
 		res.render('buscar', { title: 'Desapeguei - Home', resultBusca });
 	},
-	
+
 	addBd: (req, res) => {
 		Usuario.create({
 			nome: req.body.nome,
@@ -129,33 +130,39 @@ module.exports = {
 
 		})
 	},
-	addproduto: (req, res) => {
-		Anuncio.create({
-			usuarios_id: 4,
-			// Finalizar o login do sistema, para então alterar depois
-			// a  configuração do usuario id no inserir anuncio.
-			titulo: req.body.title,
-			descricao: req.body.description,
-			categoria_id: req.body.categoria_id,
-			status_id: 2,
-			valor: req.body.valor,
-			localizacao: req.body.localizacao,
-			imagem: req.body.file,
-			telefone:"11987895222",
-			cpf: "12345678925"
-			
+	addproduto: async (req, res) => {
 
-		}).then(function () {
+		try {
+			const result = await sequelize.transaction(async (t) => {
+
+				const novoAnuncio = await Anuncio.create({
+					usuarios_id: req.session.usuario.id,
+					// tornar auto incrementavel
+					titulo: req.body.title,
+					descricao: req.body.description,
+					categoria_id: Number(req.body.categoria_id),
+					status_id: 2,
+					valor: Number(req.body.valor),
+					localizacao: req.body.localizacao,
+					telefone: "11985488796",
+					cpf: "12345678953"
+
+				}, { transaction: t })
+				const imagemdoAnuncio = await ImagemAnuncio.create({
+
+					anuncios_id: novoAnuncio.dataValues.id,
+					imagem: "/images/" + req.file.filename
+				}, { transaction: t })
+				return novoAnuncio
+
+			})
 			res.send("Anuncio inserido com sucesso!")
-			res.redirect('/')
-		}).catch(function (erro) {
+		} catch (error) {
+			console.log(error)
 			res.send("Houve um erro na insercao do anuncio.")
 
-		})
-		// ImagemAnuncio.create({
-		// 	imagem: req.body.file,
-		// 	anuncios_id : 6
-		// })
+		}
+
 	},
 	fazerlogin: async (req, res) => {
 		const { email, senha } = req.body
@@ -190,26 +197,26 @@ module.exports = {
 		const produtosFavoritados = await Anuncio_Favorito.findAll({
 			limit: 10,
 			include: [
-				
+
 				{
-					
+
 
 					as: 'anuncios_favoritos',
 					model: Anuncio,
 					required: true,
-					
-					
-					
+
+
+
 				},
 				{
-					
+
 
 					as: 'anuncios_imagens',
 					model: ImagemAnuncio,
 					required: true,
-					
-					
-					
+
+
+
 				},
 				{
 					as: 'anuncios_favoritos_usuarios',
@@ -219,8 +226,8 @@ module.exports = {
 						id: req.session.usuario.id
 					},
 				},
-		
-		]
+
+			]
 		})
 		console.log(produtosFavoritados)
 		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
