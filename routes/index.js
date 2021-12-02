@@ -24,9 +24,9 @@ router.get('/favoritos', authUsuario, SiteController.favoritos);
 router.get('/itens', SiteController.itens);
 router.get('/itens/:categoria', SiteController.itens);
 router.get('/buscar', SiteController.buscar);
-router.get('/buscar/:id', SiteController.buscar);
+router.get('/buscar/:nomeBusca', SiteController.buscar);
 router.post('/addBd',SiteController.addBd);
 router.post('/addproduto', upload.single("file"), SiteController.addproduto);
 router.post('/itens/:id', SiteController.favoritar);
-
+router.get('/teste', SiteController.ultimosAnuncios);
 module.exports = router;

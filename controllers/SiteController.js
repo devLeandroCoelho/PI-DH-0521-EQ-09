@@ -3,20 +3,46 @@ const { Usuario, Anuncio, Anuncio_Favorito, ImagemAnuncio, sequelize, Categoria 
 const { QueryTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 
-//exemplo
-// Usuario.findAll().then(
-//     data=>{
-//         console.log(data.map(d => d.toJSON()));
-//         sequelize.close();
-//     }
-// )
+
+async function getFavoritos (usuario) {
+	let favoritos;
+	if (usuario == undefined) {
+		favoritos = [];
+
+	} else {
+		favoritos = await sequelize.query(`
+			
+				SELECT	 
+					a.id ,
+					a.titulo as titulo ,
+					a.descricao as descricao,
+					a.telefone as telefone,
+					a.localizacao as localizacao,
+					a.valor as valor,
+					c.nome as categoria_nome,
+					ia.imagem as imagem
+		
+				FROM anuncios_favoritos af
+				INNER JOIN anuncios a ON a.id = af.anuncios_id
+				INNER JOIN categorias c ON a.categoria_id = c.id
+				LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+				WHERE af.usuarios_id = ${usuario.id}
+				LIMIT 4 ` )
+
+	}
+	return favoritos;
+}
 
 module.exports = {
-
-
-
-
+	
+	
+	
+	
 	index: async (req, res) => {
+		
+		
+		const favoritos = await getFavoritos(req.session.usuario);
+
 
 		const anunciosMFav = await sequelize.query(
 			`SELECT a.id,
@@ -37,7 +63,7 @@ module.exports = {
                  ia.imagem
 		ORDER BY COUNT(*) DESC
 		LIMIT 10`, { type: QueryTypes.SELECT });
-		res.render('index', { title: 'Desapeguei - Home', anunciosMFav });
+		res.render('index', { title: 'Desapeguei - Home', anunciosMFav, favoritos });
 	},
 	tdu: (req, res) => {
 		res.render('termodeuso', { title: 'Desapeguei - Termo de Uso' });
@@ -55,9 +81,10 @@ module.exports = {
 		res.render('ajuda', { title: 'Desapeguei - Ajuda' });
 	},
 	produto: async (req, res) => {
+		const favoritos =  await getFavoritos(req.session.usuario);
 		const id = req.params.id
-		const produtos =  await Anuncio.findOne({ where: { id: Number(id) } , include : ["imagens"]})
-		res.render('produto', { title: 'Desapeguei - Produto' , anuncio:produtos });
+		const produtos = await Anuncio.findOne({ where: { id: Number(id) }, include: ["imagens"] })
+		res.render('produto', { title: 'Desapeguei - Produto', anuncio: produtos,favoritos  });
 	},
 	cadastroproduto: (req, res) => {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
@@ -82,16 +109,17 @@ module.exports = {
 				},
 				include: ["imagens"]
 			})
-			return res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos });
+			return res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos  });
 
 		}
 		produtos = await Anuncio.findAll({
 			limit: 10
 		})
 		res.render('itens', { title: 'Desapeguei - Itens', produtos: produtos });
-		//enviar dois arrays , um para favoritados, outro para recem adicionados, junto com o title.
+
 	},
 	buscar: async (req, res) => {
+		const { nomeBusca } = req.params
 		const resultBusca = await sequelize.query(
 			`SELECT a.id,
                a.titulo,
@@ -100,17 +128,20 @@ module.exports = {
                a.valor,
                ia.imagem,
                COUNT(*) AS qtdResultBusca
-        FROM anuncios a
-        LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
-        GROUP BY a.id,
+				FROM anuncios a
+				LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+				WHERE titulo LIKE :nomebuscar
+				GROUP BY a.id,
                  a.titulo,
                  a.descricao,
                  a.categoria_id,
                  a.valor,
                  ia.imagem
-		ORDER BY COUNT(*) DESC
-		LIMIT 50`, { type: QueryTypes.SELECT });
-		res.render('buscar', { title: 'Desapeguei - Home', resultBusca });
+			
+			ORDER BY COUNT(*) DESC
+			LIMIT 50`, { replacements: { nomebuscar: ("%" + nomeBusca + "%") }, type: QueryTypes.SELECT });
+		res.json(resultBusca)
+		// res.render('buscar', { title: 'Desapeguei - Home', resultBusca });
 	},
 
 	addBd: (req, res) => {
@@ -138,7 +169,7 @@ module.exports = {
 
 				const novoAnuncio = await Anuncio.create({
 					usuarios_id: req.session.usuario.id,
-					// tornar auto incrementavel
+
 					titulo: req.body.title,
 					descricao: req.body.description,
 					categoria_id: Number(req.body.categoria_id),
@@ -195,42 +226,36 @@ module.exports = {
 	},
 
 	favoritos: async (req, res) => {
-		const produtosFavoritados = await Anuncio_Favorito.findAll({
-			limit: 10,
-			include: [
+		const favoritos = await sequelize.query(`
+		SELECT	 
+			a.id ,
+			a.titulo as titulo ,
+			a.descricao as descricao,
+			a.telefone as telefone,
+			a.localizacao as localizacao,
+			a.valor as valor,
+			c.nome as categoria_nome,
+			ia.imagem as imagem
 
-				{
+		FROM anuncios_favoritos af
+		INNER JOIN anuncios a ON a.id = af.anuncios_id
+		INNER JOIN categorias c ON a.categoria_id = c.id
+		LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+		WHERE af.usuarios_id = ${req.session.usuario.id}`)
 
-
-					as: 'anuncios_favoritos',
-					model: Anuncio,
-					required: true,
-
-
-
-				},
-				{
-					as: 'anuncios_favoritos_usuarios',
-					model: Usuario,
-					required: true,
-					where: {
-						id: req.session.usuario.id
-					},
-				},
-
-			]
-		})
-		console.log(produtosFavoritados)
-		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos: produtosFavoritados });
+		console.log(favoritos)
+		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos });
 	},
 
-	// ordenar pelas datas mais recentes, limintando a 10.
+
 	ultimosAnuncios: async (req, res) => {
-		const maisFavoritado = await Anuncio.findAll({
-			limit: 10,
+		const ultimosAdicionados = await Anuncio.findAll({
+
+			order: [["id", "DESC"]],
+			limit: 5
 		})
-
-
+		console.log(ultimosAdicionados)
+		res.json(ultimosAdicionados)
 	},
 
 

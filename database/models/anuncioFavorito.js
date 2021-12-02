@@ -19,14 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     anuncios_favoritos.belongsTo(
       models.Anuncio,
       {
-        as: 'anuncios_favoritos',
+        as: 'anuncio',
         foreignKey: 'anuncios_id',
       }
     )
     anuncios_favoritos.belongsTo(
       models.Usuario,
       {
-        as: 'anuncios_favoritos_usuarios',
+        as: 'usuario',
         foreignKey: 'usuarios_id',
       }
     )
