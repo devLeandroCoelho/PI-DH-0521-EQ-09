@@ -50,17 +50,20 @@ module.exports = {
                a.descricao,
                a.categoria_id,
                a.valor,
+			   c.nome as categoria_nome,
                ia.imagem,
                COUNT(*) AS qtdFavoritados
         FROM anuncios a
         INNER JOIN anuncios_favoritos af ON a.id = af.anuncios_id
         LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+		LEFT JOIN categorias c ON a.categoria_id = c.id
         GROUP BY a.id,
                  a.titulo,
                  a.descricao,
                  a.categoria_id,
                  a.valor,
-                 ia.imagem
+                 ia.imagem,
+				 c.nome
 		ORDER BY COUNT(*) DESC
 		LIMIT 10`, { type: QueryTypes.SELECT });
 		res.render('index', { title: 'Desapeguei - Home', anunciosMFav, favoritos });
