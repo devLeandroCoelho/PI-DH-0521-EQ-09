@@ -143,7 +143,6 @@ module.exports = {
 			
 			ORDER BY COUNT(*) DESC
 			LIMIT 10`, { replacements: { nomebuscar: ("%" + nomeBusca + "%") }, type: QueryTypes.SELECT });
-		console.log(resultBusca)
 			res.render('buscar', { title: 'Desapeguei - Home', resultBusca, nomeBusca });
 	},
 

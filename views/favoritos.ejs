@@ -52,7 +52,7 @@
 																	<%= favorito.titulo %>
 																</a></h3>
 															<h4 class="product-price">
-																<%= favorito.valor %>
+																<%= favorito.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %>
 															</h4>
 														</div>
 														<div class="add-to-cart">

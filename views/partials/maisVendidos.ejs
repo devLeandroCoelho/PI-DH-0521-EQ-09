@@ -34,7 +34,7 @@
 											<div class="product-body">
 												<p class="product-category"><%= anuncioMFav.categoria_id %></p>
 												<h3 class="product-name"><a href="/produto/1"><%= anuncioMFav.titulo %> </a></h3>
-												<h4 class="product-price"><%= anuncioMFav.valor%></h4>
+												<h4 class="product-price"><%= anuncioMFav.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></h4>
 											</div>
 											<div class="add-to-cart">
 												<button class="add-to-cart-btn"><i class="fa fa-star"><a href="/produto/<%= anuncioMFav.id %>"></i>Conferir</button></a>

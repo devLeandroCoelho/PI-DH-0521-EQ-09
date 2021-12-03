@@ -63,7 +63,7 @@
 									</h2>
 									<div>
 										<h3 class="product-price">
-											<%= anuncio.valor %>
+											<%= anuncio.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %>
 										</h3>
 									</div>
 									<p>

@@ -26,7 +26,7 @@
 												<img src="<%= produto.imagens[0].imagem %>" alt="">
 											
 											</div>
-											<h4 class="product-price"><%= produto.valor %></h4>
+											<h4 class="product-price"><%= produto.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></h4>
 											<div class="product-rating">
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star"></i>
