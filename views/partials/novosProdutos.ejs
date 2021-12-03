@@ -22,107 +22,41 @@
 							<div id="tab1" class="tab-pane active">
 								<div class="products-slick" data-nav="#slick-nav-1">
 									<!-- product -->
-									<div class="product">
-										<a href="/produto/2">
-										<div class="product-img">
-											<img src="/images/notebookhp.png" alt="">
-
-										</div>
-										<div class="product-body">
-											<p class="product-category">Eletrônicos</p>
-											<h3 class="product-name"><a href="#">Notebook HP 256 </a></h3>
-											<h4 class="product-price">R$ 1000,00</h4>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="  fa fa-star" ></i><a href="/itens/6"></i>Favoritos</button></a>
-										</div>
-									</a>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
+									<% anunciosMNovos.forEach(anuncioMNovos=>{ %>
 									<div class="product">
 										<a href="/produto/1">
-										<div class="product-img">
-											<img src="/images/phone.png" alt="">
+											<div class="product-img">
+												<img src="<%= anuncioMNovos.imagem %>" alt="">
 
-										</div>
-										<div class="product-body">
-											<p class="product-category">Acessórios</p>
-											<h3 class="product-name"><a href="#">Headset Fortrek</a></h3>
-											<h4 class="product-price">R$ 100,00</h4>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"></i><a href="/itens/5"></i>Favoritos</button></a>
-										</div>
-									</a>
+											</div>
+											<div class="product-body">
+												<p class="product-category"><%= anuncioMNovos.categoria_nome, %></p>
+												<h3 class="product-name"><a href="/produto/1"><%= anuncioMNovos.titulo %> </a>
+												</h3>
+												<h4 class="product-price">
+													<%= anuncioMNovos.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%>
+												</h4>
+											</div>
+											<div class="add-to-cart">
+												<button class="add-to-cart-btn"><i class="fa fa-star"><a
+															href="/produto/<%= anuncioMNovos.id %>"></i>Conferir</button>
+										</a>
 									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<a href="/produto/2">
-										<div class="product-img">
-											<img src="/images/playstation.png" alt="">
-
-										</div>
-										<div class="product-body">
-											<p class="product-category">Eletrônicos</p>
-											<h3 class="product-name"><a href="#">Playstation 4</a></h3>
-											<h4 class="product-price">R$ 1400,00</h4>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="  fa fa-star"><a href="/itens/6"></i>Favoritos</button></a>
-										</div>
 									</a>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<a href="/produto/3">
-										<div class="product-img">
-											<img src="/images/tablet.png" alt="">
-										</div>
-										<div class="product-body">
-											<p class="product-category">Eletrônicos</p>
-											<h3 class="product-name"><a href="#">Tablet Acer</a></h3>
-											<h4 class="product-price">R$ 300,00 </h4>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="  fa fa-star"><a href="/itens/6"></i>Favoritos</button></a>
-										</div>
-									</a>
-									</div>
-									<!-- /product -->
-
-									<!-- product -->
-									<div class="product">
-										<a href="/produto/4">
-										<div class="product-img">
-											<img src="/images/mesa-de-escritorio.png" alt="">
-										</div>
-										<div class="product-body">
-											<p class="product-category">Mesa</p>
-											<h3 class="product-name"><a href="#">Mesa de escritório</a></h3>
-											<h4 class="product-price">R$ 500,00</h4>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="  fa fa-star"><a href="/itens/2"></a></i>Favoritos</button>
-										</div>
-									</a>
-									</div>
-									<!-- /product -->
 								</div>
-								<div id="slick-nav-1" class="products-slick-nav"></div>
+
+								<%})%>
+								<!-- /product -->
 							</div>
-							<!-- /tab -->
+							<div id="slick-nav-1" class="products-slick-nav"></div>
 						</div>
+						<!-- /tab -->
 					</div>
 				</div>
-				<!-- Products tab & slick -->
 			</div>
-			<!-- /row -->
+			<!-- Products tab & slick -->
+		</div>
+		<!-- /row -->
 		</div>
 		<!-- /container -->
 		</div>

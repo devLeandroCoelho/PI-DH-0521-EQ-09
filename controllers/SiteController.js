@@ -66,7 +66,31 @@ module.exports = {
 				 c.nome
 		ORDER BY COUNT(*) DESC
 		LIMIT 10`, { type: QueryTypes.SELECT });
-		res.render('index', { title: 'Desapeguei - Home', anunciosMFav, favoritos });
+		const anunciosMNovos = await sequelize.query(
+			`SELECT a.id,
+               a.titulo,
+               a.descricao,
+               a.categoria_id,
+               a.valor,
+			   c.nome as categoria_nome,
+               ia.imagem
+        FROM anuncios a
+        LEFT JOIN anuncios_favoritos af ON a.id = af.anuncios_id
+        LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+		LEFT JOIN categorias c ON a.categoria_id = c.id
+        GROUP BY a.id,
+                 a.titulo,
+                 a.descricao,
+                 a.categoria_id,
+                 a.valor,
+                 ia.imagem,
+				 c.nome
+		ORDER BY a.id ASC
+		LIMIT 10`, { type: QueryTypes.SELECT });
+		console.log(anunciosMNovos)
+		console.log(anunciosMFav)
+
+		res.render('index', { title: 'Desapeguei - Home', anunciosMFav, anunciosMNovos, favoritos });
 	},
 	tdu: (req, res) => {
 		res.render('termodeuso', { title: 'Desapeguei - Termo de Uso' });
