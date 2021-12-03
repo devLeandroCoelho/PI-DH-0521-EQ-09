@@ -29,4 +29,8 @@ router.post('/addBd',SiteController.addBd);
 router.post('/addproduto', upload.single("file"), SiteController.addproduto);
 router.post('/itens/:id', SiteController.favoritar);
 router.get('/teste', SiteController.ultimosAnuncios);
+router.delete('/favoritos/:id', SiteController.desfavoritar)
+router.get('/minhaconta', authUsuario, SiteController.minhaconta);
+router.put('/minhaconta', SiteController.atualizardados)
+
 module.exports = router;

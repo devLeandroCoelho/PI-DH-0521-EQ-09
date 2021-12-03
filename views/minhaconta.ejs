@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<!--HEAD DA PAGINA-->
+	<%- include('./partials/head') %>
+
+<body>
+	<!-- HEADER -->
+	<%- include('./partials/header') %>
+	<!-- NAVIGATION -->
+	<%- include('./partials/nav') %>
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="breadcrumb-header">Minha Conta</h3>
+				
+			</div>
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+
+			<div class="col-md-7" >
+				<!-- Billing Details -->
+				<form action="/minhaconta/?_method=PUT" method="post">
+				<div class="billing-details" >
+					<div class="section-title">
+						<h3 class="title">SEUS DADOS</h3>
+					</div>
+					<label for="nome">Seu nome:</label>
+					<div class="form-group">
+						<input class="input" type="text" name="nome" value="<%=usuario.nome%>" >
+					</div>
+					<label for="email">Seu email:</label>
+					<div class="form-group">
+						<input class="input" type="email" name="email" value="<%=usuario.email%>">
+					</div>
+					<label for="telefone">Seu telefone:</label>
+					<div class="form-group">
+						<input class="input" type="tel" name="telefone" value="<%=usuario.telefone%>">
+					</div>
+					<label for="cpf">Seu CPF:</label>
+					<div class="form-group">
+						<input class="input" type="text" name="cpf" value="<%=usuario.cpf%>">
+					</div>
+					<label for="endereco">Seu Endereço:</label>
+					<div class="form-group">
+						<input class="input" type="text" name="endereco" value="<%=usuario.endereco%>">
+					</div>
+					
+					
+					<button type="submit" class="primary-btn order-submit">Atualizar Dados</button>
+				</div>
+				</form>
+				
+
+				<div class="form-group">
+					<br>
+
+					
+				</div>
+				<!-- /Billing Details -->
+		</div>
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+		<!-- /SECTION -->
+		<%- include('./partials/redesSociais') %>
+		<%- include('./partials/footer') %>
+	</body>
+</html>

@@ -229,6 +229,7 @@ module.exports = {
 		const favoritos = await sequelize.query(`
 		SELECT	 
 			a.id ,
+			af.id as id_favorito,
 			a.titulo as titulo ,
 			a.descricao as descricao,
 			a.telefone as telefone,
@@ -247,6 +248,13 @@ module.exports = {
 		res.render('favoritos', { title: 'Desapeguei - Favoritos', favoritos });
 	},
 
+	desfavoritar: async (req, res) => {
+		const idFavorito = req.params.id
+		await Anuncio_Favorito.destroy(
+			{where: { id: idFavorito}}
+		) 
+		res.redirect('/favoritos')
+	},
 
 	ultimosAnuncios: async (req, res) => {
 		const ultimosAdicionados = await Anuncio.findAll({
@@ -257,6 +265,21 @@ module.exports = {
 		console.log(ultimosAdicionados)
 		res.json(ultimosAdicionados)
 	},
+	minhaconta: (req, res) => {
+		//res.json(req.session.usuario)
+		res.render('minhaconta', { title: 'Desapeguei - Minha Conta', usuario: req.session.usuario});
+	},
+
+	atualizardados: async (req, res) => {
+		const usuarioAtual = req.session.usuario.id 
+		const usuarioBanco = await Usuario.findOne(
+			{where: {id: usuarioAtual}}
+		)
+		usuarioBanco.nome = req.body.nome //nome do input obs
+
+		await usuarioBanco.save()
+		res.redirect('/minhaconta')
+	}
 
 
 

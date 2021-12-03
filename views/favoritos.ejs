@@ -33,7 +33,7 @@
 										<div id="tab2" class="tab-pane fade in active">
 											<div class="products-slick" data-nav="#slick-nav-2">
 												<!-- product -->
-												
+											
 												<% favoritos[0].forEach(favorito=>{ %>
 
 											
@@ -41,7 +41,7 @@
 													<div class="product">
 														<div class="product-img">
 														
-
+															
 															<img src="<%= favorito.imagem %>" alt="">
 															
 
@@ -56,8 +56,10 @@
 															</h4>
 														</div>
 														<div class="add-to-cart">
-															<button class="add-to-cart-btn"><i
+															<form action="/favoritos/<%= favorito.id_favorito %>?_method=DELETE" method="post">
+															<button class="add-to-cart-btn" type="submit"><i
 																	class="fa fa-star"></i>Desfavoritar</button>
+															</form>
 														</div>
 													</div>
 													<%})%>
