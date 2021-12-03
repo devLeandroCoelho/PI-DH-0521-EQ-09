@@ -3,67 +3,61 @@
 <!--HEAD DA PAGINA-->
 <%- include('./partials/head') %>
 
-	<body>
-		<!-- HEADER -->
-		<%- include('./partials/header') %>
-			<!-- NAVIGATION -->
-			<%- include('./partials/nav') %>
+<body>
+	<!-- HEADER -->
+	<%- include('./partials/header') %>
+	<!-- NAVIGATION -->
+	<%- include('./partials/nav') %>
 
 
-				<!-- SECTION -->
-				<div class="section">
-					<!-- container -->
-					<div class="container">
-						<!-- row -->
-						<div class="row">
-							<% produtos.forEach(produto=>{ %>
-								<div class="col-md-4 col-xs-6">
-									<div class="product">
+	<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<% produtos.forEach(produto=>{ %>
+				<div class="col-md-4 col-xs-6">
+					<div class="product">
 
-										<div class="product-body">
-											<h3 class="product-name"><a href="#"><%= produto.titulo %></a></h3>
-											<div class="product-img">
-												<img src="<%= produto.imagens[0].imagem %>" alt="">
-											
-											</div>
-											<h4 class="product-price"><%= produto.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-											</div>
-											<form  action="/itens/<%= produto.id %>" method="POST"class="product-btns">
-												<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-														class="tooltipp">Favoritar esse produto</span></button>
-											</form>
-										</div>
-									
-									</div>
+						<div class="product-body">
+							<h3 class="product-name"><a href="/itens/<%= produto.categoria_id %> %>"><%= produto.titulo %></a></h3>
+							<a href="/produto/<%= produto.id %> %>">
+								<div class="product-img">
+									<img src="<%= produto.imagens[0].imagem %>" alt="">
 								</div>
-								<%})%>
-								
-									<!-- STORE -->
-									<div id="store" class="col-md-9">
-
-
-										<!-- store products -->
-										<div class="row">
-
-
-										</div>
-										<!-- /STORE -->
-									</div>
-									<!-- /row -->
+							</a>
+							<h4 class="product-price">
+								<%= produto.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) %></h4>
+							<form action="/itens/<%= produto.id %>" method="POST" class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
+										class="tooltipp">Favoritar esse produto</span></button>
+							</form>
 						</div>
-						<!-- /container -->
 					</div>
-					<!-- /SECTION -->
-					<!-- /SECTION -->
-					<%- include('./partials/redesSociais') %>
-						<%- include('./partials/footer') %>
+				</div>
+				<%})%>
 
-	</body>
+				<!-- STORE -->
+				<div id="store" class="col-md-9">
+
+
+					<!-- store products -->
+					<div class="row">
+
+
+					</div>
+					<!-- /STORE -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+		<!-- /SECTION -->
+		<%- include('./partials/redesSociais') %>
+		<%- include('./partials/footer') %>
+
+</body>
 
 </html>
