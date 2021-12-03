@@ -111,7 +111,31 @@ module.exports = {
 		const favoritos =  await getFavoritos(req.session.usuario);
 		const id = req.params.id
 		const produtos = await Anuncio.findOne({ where: { id: Number(id) }, include: ["imagens"] })
-		res.render('produto', { title: 'Desapeguei - Produto', anuncio: produtos,favoritos  });
+		const nomeCat = await Categoria.findOne({ where: produtos.categoria_id })
+		const prodsRelId = await sequelize.query(
+			`SELECT a.id,
+               a.titulo,
+               a.descricao,
+               a.categoria_id,
+               a.valor,
+               ia.imagem,
+			   c.nome as categoria_nome,
+               COUNT(*) AS qtdResultBusca
+				FROM anuncios a
+				LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+				LEFT JOIN categorias c ON a.categoria_id = c.id
+				WHERE categoria_id LIKE :nomebuscar
+				GROUP BY a.id,
+                 a.titulo,
+                 a.descricao,
+                 a.categoria_id,
+                 a.valor,
+                 ia.imagem,
+				 c.nome
+			
+			ORDER BY COUNT(*) DESC
+			LIMIT 10`, { replacements: { nomebuscar: (produtos.categoria_id)}, type: QueryTypes.SELECT });
+		res.render('produto', { title: 'Desapeguei - Produto', anuncio: produtos,favoritos,prodsRelId,nomeCat  });
 	},
 	cadastroproduto: (req, res) => {
 		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });

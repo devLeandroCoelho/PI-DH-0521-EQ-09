@@ -12,111 +12,26 @@
 				</div>
 
 				<!-- product -->
+				<% prodsRelId.forEach(prodRelId=>{ %>
 				<div class="col-md-3 col-xs-6">
 					<div class="product">
-						<div class="product-img">
-							<img src="<%= anuncio.imagens[0].imagem %>" alt="">
+						<a href="/produto/<%= prodRelId.id %>"><div class="product-img">
+							<img src="<%= prodRelId.imagem %>" alt="">
 						
 						</div>
+					</a>
 						<div class="product-body">
-							<p class="product-category">Categoria</p>
-							<h3 class="product-name"><a href="#">Notebook HP 256 </a></h3>
-							<h4 class="product-price">R$ 980,00 </h4>
-							<!-- <div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div> -->
-
+							<a href="/itens/<%= prodRelId.categoria_id %>"><p class="product-category"><%= prodRelId.categoria_nome, %></p></a>
+							<h3 class="product-name"><a href="/produto/<%= prodRelId.id %>"><%= prodRelId.titulo %> </a></h3>
+							<h4 class="product-price"><%= prodRelId.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></h4>
 						</div>
 						<div class="add-to-cart">
 							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Carrinho</button>
 						</div>
 					</div>
 				</div>
-				<!-- /product -->
-
-				<!-- product -->
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="<%= anuncio.imagens[0].imagem %>" alt="">
-						
-						</div>
-						<div class="product-body">
-							<p class="product-category">Categoria</p>
-							<h3 class="product-name"><a href="#">Mesa de Escritório</a></h3>
-							<h4 class="product-price">R$ 980,00</h4>
-							<!-- <div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-								</div> -->
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Carrinho</button>
-						</div>
-					</div>
-				</div>
-				<!-- /product -->
-
-				<div class="clearfix visible-sm visible-xs"></div>
-
-				<!-- product -->
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="<%= anuncio.imagens[0].imagem %>" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Categoria</p>
-							<h3 class="product-name"><a href="#">Notebook Acer</a></h3>
-							<h4 class="product-price">R$ 980,00 </h4>
-							<!-- <div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div> -->
-
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Carrinho</button>
-						</div>
-					</div>
-				</div>
-				<!-- /product -->
-
-				<!-- product -->
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="<%= anuncio.imagens[0].imagem %>" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Categoria</p>
-							<h3 class="product-name"><a href="#">Tablet Acer</a></h3>
-							<h4 class="product-price">R$ 980,00</h4>
-							<!-- <div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div> -->
-
-						</div>
-						<div class="add-to-cart">
-							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Carrinho</button>
-						</div>
-					</div>
-				</div>
-				<!-- /product -->
+				<%})%>
+				
 
 			</div>
 			<!-- /row -->

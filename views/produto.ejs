@@ -18,8 +18,9 @@
 						<div class="row">
 							<div class="col-md-12">
 								<ul class="breadcrumb-tree">
-									<li><a href="#">Home</a></li>
-									<li><a href="#"><%= anuncio.titulo %></a></li>
+									<li><a href="/">Home</a></li>
+									<li><a href="/itens/<%= anuncio.categoria_id %>"><%= nomeCat.nome %></a></li>
+									<li><a href="/produto/<%= anuncio.id %> %>"><%= anuncio.titulo %></a></li>
 								</ul>
 							</div>
 						</div>
@@ -65,8 +66,8 @@
 									</div>
 									<ul class="product-links">
 										<li>Categoria:</li>
-										<li><a href="#">
-												<%= anuncio.categoria_id %>
+										<li><a href="/itens/<%= anuncio.categoria_id %>">
+												<%= nomeCat.nome %>
 											</a></li>
 
 									</ul>
