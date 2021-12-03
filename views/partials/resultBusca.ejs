@@ -26,14 +26,14 @@
 										<!-- product -->
 										<% resultBusca.forEach(resultBusca=>{ %>
 										<div class="product">
-											<a href="/produto/1">
+											<a href="/produto/<%= resultBusca.id %>">
 											<div class="product-img">
 												<img src="<%= resultBusca.imagem %>" alt="">
 
 											</div>
 											<div class="product-body">
 												<p class="product-category"><%= resultBusca.categoria_nome %></p>
-												<h3 class="product-name"><a href="/produto/1"><%= resultBusca.titulo %> </a></h3>
+												<h3 class="product-name"><a href="/produto/<%= resultBusca.id %>"><%= resultBusca.titulo %> </a></h3>
 												<h4 class="product-price"><%= resultBusca.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></h4>
 											</div>
 											<div class="add-to-cart">

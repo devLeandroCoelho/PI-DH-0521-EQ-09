@@ -24,14 +24,14 @@
 									<!-- product -->
 									<% anunciosMNovos.forEach(anuncioMNovos=>{ %>
 									<div class="product">
-										<a href="/produto/1">
+										<a href="/produto/<%= anuncioMNovos.id %>">
 											<div class="product-img">
 												<img src="<%= anuncioMNovos.imagem %>" alt="">
 
 											</div>
 											<div class="product-body">
 												<p class="product-category"><%= anuncioMNovos.categoria_nome, %></p>
-												<h3 class="product-name"><a href="/produto/1"><%= anuncioMNovos.titulo %> </a>
+												<h3 class="product-name"><a href="/produto/<%= anuncioMNovos.id %>"><%= anuncioMNovos.titulo %> </a>
 												</h3>
 												<h4 class="product-price">
 													<%= anuncioMNovos.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%>

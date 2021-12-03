@@ -19,10 +19,7 @@
 							<div class="col-md-12">
 								<ul class="breadcrumb-tree">
 									<li><a href="#">Home</a></li>
-									<li><a href="#">Eletrônicos</a></li>
-									<!-- RECADO PARA BACKEND - COLOCAR AQUI A CATEGORIA -->
-									<li><a href="#">NOTEBOOK HP 256</a></li>
-									<!--RECADO PARA BACKEND - COLOCAR AQUI O TITULO DO PRODUTO -->
+									<li><a href="#"><%= anuncio.titulo %></a></li>
 								</ul>
 							</div>
 						</div>
@@ -37,24 +34,15 @@
 					<!-- container -->
 					<div class="container">
 						<!-- row -->
-
-
-
-
-
 						<div class="row">
 							<!-- /Product main img -->
 							<div class="col-md-7">
 								<!-- Product thumb imgs -->
 								<div class="product-img">
-
 									<img src="<%= anuncio.imagens[0].imagem %>" alt="" >
-
 								</div>
 							</div>
-
 							<!-- /Product thumb imgs -->
-
 							<!-- Product details -->
 							<div class="col-md-5">
 								<div class="product-details">
@@ -69,11 +57,9 @@
 									<p>
 										<%= anuncio.descricao %>
 									</p>
-
 									<p>
 									Telefone para contato:  <%= anuncio.telefone %>
 									</p>
-
 									<div class="add-to-cart">
 										<button class="add-to-cart-btn"><i class=""></i>Favoritos</button>
 									</div>
@@ -94,10 +80,8 @@
 				<!-- /container -->
 				</div>
 				<!-- /SECTION -->
-				<%- include('./partials/produtosRelacionados') %>
+				<%- include('./partials/produtosRelacionados',{catId = anuncio.categoria_id}) %>
 					<%- include('./partials/redesSociais') %>
 						<%- include('./partials/footer') %>
-
 	</body>
-
 </html>
