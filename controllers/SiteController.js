@@ -119,7 +119,7 @@ module.exports = {
 
 	},
 	buscar: async (req, res) => {
-		const { nomeBusca } = req.params
+		const { nomeBusca } = req.query
 		const resultBusca = await sequelize.query(
 			`SELECT a.id,
                a.titulo,
@@ -127,21 +127,24 @@ module.exports = {
                a.categoria_id,
                a.valor,
                ia.imagem,
+			   c.nome as categoria_nome,
                COUNT(*) AS qtdResultBusca
 				FROM anuncios a
 				LEFT JOIN imagem_anuncios ia ON ia.anuncios_id = a.id
+				LEFT JOIN categorias c ON a.categoria_id = c.id
 				WHERE titulo LIKE :nomebuscar
 				GROUP BY a.id,
                  a.titulo,
                  a.descricao,
                  a.categoria_id,
                  a.valor,
-                 ia.imagem
+                 ia.imagem,
+				 c.nome
 			
 			ORDER BY COUNT(*) DESC
-			LIMIT 50`, { replacements: { nomebuscar: ("%" + nomeBusca + "%") }, type: QueryTypes.SELECT });
-		res.json(req.params.buscar)
-		// res.render('buscar', { title: 'Desapeguei - Home', resultBusca, nomeBusca });
+			LIMIT 10`, { replacements: { nomebuscar: ("%" + nomeBusca + "%") }, type: QueryTypes.SELECT });
+		console.log(resultBusca)
+			res.render('buscar', { title: 'Desapeguei - Home', resultBusca, nomeBusca });
 	},
 
 	addBd: (req, res) => {

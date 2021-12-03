@@ -8,7 +8,7 @@
 				
 					<div class="col-md-12">
 						<div class="section-title">
-							<h3 class="title">PRODUTOS MAIS FAVORITADOS</h3>
+							<h3 class="title">Resultado de Busca para <%=nomeBusca;%> </h3>
 
 						</div>
 					</div>
@@ -24,20 +24,20 @@
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
 										<!-- product -->
-										<% anunciosMFav.forEach(anuncioMFav=>{ %>
+										<% resultBusca.forEach(resultBusca=>{ %>
 										<div class="product">
 											<a href="/produto/1">
 											<div class="product-img">
-												<img src="<%= anuncioMFav.imagem %>" alt="">
+												<img src="<%= resultBusca.imagem %>" alt="">
 
 											</div>
 											<div class="product-body">
-												<p class="product-category"><%= anuncioMFav.categoria_id %></p>
-												<h3 class="product-name"><a href="/produto/1"><%= anuncioMFav.titulo %> </a></h3>
-												<h4 class="product-price"><%= anuncioMFav.valor%></h4>
+												<p class="product-category"><%= resultBusca.categoria_nome %></p>
+												<h3 class="product-name"><a href="/produto/1"><%= resultBusca.titulo %> </a></h3>
+												<h4 class="product-price"><%= resultBusca.valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})%></h4>
 											</div>
 											<div class="add-to-cart">
-												<button class="add-to-cart-btn"><i class="fa fa-star"><a href="/produto/<%= anuncioMFav.id %>"></i>Conferir</button></a>
+												<button class="add-to-cart-btn"><i class="fa fa-star"><a href="/produto/<%= resultBusca.id %>"></i>Conferir</button></a>
 											</div>
 										</a>
 										</div>
