@@ -11,11 +11,17 @@
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
 	<!-- container -->
+	<% if (mensagem !=''){ %>
+		<div class="alert col-md-12">
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+			<%=mensagem%>
+		</div>
+		<% } %>
 	<div class="container">
 		<!-- row -->
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="breadcrumb-header"><%=mensagem%></h3>
+				<h3 class="breadcrumb-header">ACESSAR SUA CONTA</h3>
 				
 			</div>
 		</div>

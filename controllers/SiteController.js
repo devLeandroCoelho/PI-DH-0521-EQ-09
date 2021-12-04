@@ -138,13 +138,13 @@ module.exports = {
 		res.render('produto', { title: 'Desapeguei - Produto', anuncio: produtos,favoritos,prodsRelId,nomeCat  });
 	},
 	cadastroproduto: (req, res) => {
-		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto' });
+		res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto',mensagem: '' });
 	},
 	login: (req, res) => {
 		if (typeof req.session.usuario !== 'undefined' && req.session.usuario) {
 			res.redirect('/')
 		}
-		res.render('login', { title: 'Desapeguei - Login',mensagem: 'ACESSAR SUA CONTA' });
+		res.render('login', { title: 'Desapeguei - Login',mensagem: '' });
 	},
 	perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
@@ -207,7 +207,7 @@ module.exports = {
 			endereco: req.body.endereco,
 			senha: bcrypt.hashSync(req.body.senha, 10)
 		}).then(function () {
-			res.render('login', { title: 'Desapeguei - Login',mensagem: 'CADASTRADO COM SUCESSO - ACESSAR SUA CONTA' });
+			res.render('login', { title: 'Desapeguei - Login',mensagem: 'CADASTRADO COM SUCESSO - ACESSE SUA CONTA' });
 		}).catch(function (erro) {
 			console.log(erro)
 			res.render('perfil', { title: 'Desapeguei - Login'});
@@ -240,10 +240,10 @@ module.exports = {
 				return novoAnuncio
 
 			})
-			res.send("Anuncio inserido com sucesso!")
+			res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto',mensagem: 'PRODUTO CADASTRADO COM SUCESSO' });
 		} catch (error) {
 			console.log(error)
-			res.send("Houve um erro na insercao do anuncio.")
+			res.render('cadastroProduto', { title: 'Desapeguei - Cadastro Produto',mensagem: 'Erro ao cadastrar, tente novamente' });
 
 		}
 

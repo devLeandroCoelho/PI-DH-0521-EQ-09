@@ -3,104 +3,109 @@
 <!--HEAD DA PAGINA-->
 <%- include('./partials/head') %>
 
-	<body>
-		<!-- HEADER -->
-		<%- include('./partials/header') %>
-			<!-- NAVIGATION -->
-			<%- include('./partials/nav') %>
+<body>
+	<!-- HEADER -->
+	<%- include('./partials/header') %>
+	<!-- NAVIGATION -->
+	<%- include('./partials/nav') %>
 
-				<!-- BREADCRUMB -->
-				<div id="breadcrumb" class="section">
-					<!-- container -->
-					<div class="container">
-						<!-- row -->
-						<div class="row">
-							<div class="col-md-12">
-								<h3 class="breadcrumb-header">O que você quer vender?</h3>
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb" class="section">
+		<% if (mensagem !=''){ %>
+		<div class="alert col-md-12">
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+			<%=mensagem%>
+		</div>
+		<% } %>
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="breadcrumb-header">O que você quer vender?</h3>
 
-							</div>
-						</div>
-						<!-- /row -->
-					</div>
-					<!-- /container -->
 				</div>
-				<!-- /BREADCRUMB -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /BREADCRUMB -->
 
-				<!-- SECTION -->
-				<div class="section">
-					<!-- container -->
-					<div class="container">
-						<!-- row -->
-						<div class="row">
+	<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
 
-							<div class="col-md-7">
-								<!-- Billing Details -->
-								<form action="/addproduto" method="POST" enctype="multipart/form-data">
-									<div class="billing-details">
-										<div class="section-title">
-											<h3 class="title">Anunciar</h3>
-										</div>
-										<div class="form-group">
-											<input class="input" type="title" name="title"
-												placeholder="Título do produto">
-										</div>
-										<div class="form-group">
-											<textarea class="input" name="description"
-												placeholder="Descrição do produto"></textarea>
-										</div>
-										<div class="form-group">
-											<textarea class="input" type="text" name="valor"
-												placeholder="Valor do produto"></textarea>
-										</div>
-										<div class="form-group">
-											<select class="input-select" name="categoria_id">
-												<option value="0">Categorias</option>
-												<option value="1">Cadeiras</option>
-												<option value="2">Mesas</option>
-												<option value="3">Armários</option>
-												<option value="4">Camas</option>
-												<option value="5">Acessórios</option>
-												<option value="6">Eletrônicos</option>
-											</select>
-										</div>
-
-										<div class="form-group">
-											<label for="file" class="input" id="file-input" multiple>Escolha uma
-												imagem</label>
-											<input class="input" type="file" name="file" id="file"
-												placeholder="Imagem do produto">
-										</div>
-
-
-										<div class="form-group">
-											<input class="input" type="text" name="localizacao"
-												placeholder="Informe sua localizacao">
-										</div>
-
-										<div class="form-group">
-											<input class="input" type="tel" name="tel" placeholder="Seu telefone">
-										</div>
-
-
-										<input type="submit" value="Anunciar"></input>
-									</div>
-								</form>
-
-								<!-- /Billing Details -->
-
-
-
+				<div class="col-md-7">
+					<!-- Billing Details -->
+					<form action="/addproduto" method="POST" enctype="multipart/form-data">
+						<div class="billing-details">
+							<div class="section-title">
+								<h3 class="title">Anunciar</h3>
 							</div>
-							<!-- /row -->
+							<div class="form-group">
+								<input class="input" type="title" name="title" placeholder="Título do produto">
+							</div>
+							<div class="form-group">
+								<textarea class="input" name="description"
+									placeholder="Descrição do produto"></textarea>
+							</div>
+							<div class="form-group">
+								<textarea class="input" type="text" name="valor"
+									placeholder="Valor do produto"></textarea>
+							</div>
+							<div class="form-group">
+								<select class="input-select" name="categoria_id">
+									<option value="0">Categorias</option>
+									<option value="1">Cadeiras</option>
+									<option value="2">Mesas</option>
+									<option value="3">Armários</option>
+									<option value="4">Camas</option>
+									<option value="5">Acessórios</option>
+									<option value="6">Eletrônicos</option>
+								</select>
+							</div>
+
+							<div class="form-group">
+								<label for="file" class="input" id="file-input" multiple>Escolha uma
+									imagem</label>
+								<input class="input" type="file" name="file" id="file" placeholder="Imagem do produto">
+							</div>
+
+
+							<div class="form-group">
+								<input class="input" type="text" name="localizacao"
+									placeholder="Informe sua localizacao">
+							</div>
+
+							<div class="form-group">
+								<input class="input" type="tel" name="tel" placeholder="Seu telefone">
+							</div>
+
+
+							<input type="submit" value="Anunciar"></input>
 						</div>
-						<!-- /container -->
-					</div>
-					<!-- /SECTION -->
+					</form>
+
+					<!-- /Billing Details -->
 
 
 
-					<%- include('./partials/redesSociais') %>
-						<%- include('./partials/footer') %>
-	</body>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+
+
+		<%- include('./partials/redesSociais') %>
+		<%- include('./partials/footer') %>
+
+</body>
 
 </html>
