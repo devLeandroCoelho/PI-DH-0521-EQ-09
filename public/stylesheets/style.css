@@ -1033,6 +1033,7 @@ textarea.input {
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
   z-index: 2;
+  
 }
 
 .product:hover .add-to-cart {
@@ -1056,6 +1057,7 @@ textarea.input {
 }
 
 .product .add-to-cart .add-to-cart-btn>i {
+  color:#FFF;
   position: absolute;
   left: 0;
   top: 0;
@@ -1534,6 +1536,7 @@ textarea.input {
 .product-details .add-to-cart {
   margin-bottom: 30px;
 }
+
 
 .product-details .add-to-cart .add-to-cart-btn {
   position: relative;

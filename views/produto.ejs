@@ -61,9 +61,11 @@
 									<p>
 									Telefone para contato:  <%= anuncio.telefone %>
 									</p>
+									<form action="/itens/<%= anuncio.id %>" method="POST" class="product-btns">
 									<div class="add-to-cart">
 										<button class="add-to-cart-btn"><i class=""></i>Favoritos</button>
 									</div>
+									</form>
 									<ul class="product-links">
 										<li>Categoria:</li>
 										<li><a href="/itens/<%= anuncio.categoria_id %>">
@@ -82,7 +84,7 @@
 				</div>
 				<!-- /SECTION -->
 				<%- include('./partials/produtosRelacionados') %>
-					<%- include('./partials/redesSociais') %>
+					
 						<%- include('./partials/footer') %>
 	</body>
 </html>
