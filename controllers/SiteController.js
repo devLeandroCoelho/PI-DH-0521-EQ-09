@@ -144,7 +144,7 @@ module.exports = {
 		if (typeof req.session.usuario !== 'undefined' && req.session.usuario) {
 			res.redirect('/')
 		}
-		res.render('login', { title: 'Desapeguei - Login' });
+		res.render('login', { title: 'Desapeguei - Login',mensagem: 'ACESSAR SUA CONTA' });
 	},
 	perfil: (req, res) => {
 		res.render('perfil', { title: 'Desapeguei - Perfil' });
@@ -207,11 +207,10 @@ module.exports = {
 			endereco: req.body.endereco,
 			senha: bcrypt.hashSync(req.body.senha, 10)
 		}).then(function () {
-			res.send("Cadastro inserido com sucesso!")
-			res.redirect('/')
+			res.render('login', { title: 'Desapeguei - Login',mensagem: 'CADASTRADO COM SUCESSO - ACESSAR SUA CONTA' });
 		}).catch(function (erro) {
 			console.log(erro)
-			res.send("Houve um erro na insercao do cadastro.")
+			res.render('perfil', { title: 'Desapeguei - Login'});
 
 		})
 	},
